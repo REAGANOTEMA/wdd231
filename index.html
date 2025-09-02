@@ -1,185 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Reagan Otema's WDD231 Course Home Page. Professional, responsive, and interactive web design.">
-<meta name="author" content="Reagan Otema">
-<title>Reagan Otema | WDD231 Course Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Reagan Otema's WDD231 Course Home Page. Professional, responsive, and interactive web design." />
+  <meta name="author" content="Reagan Otema" />
+  <meta name="theme-color" content="#1a1a2e" />
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <title>Reagan Otema | WDD231 Course Home</title>
 
-<!-- CSS Files -->
-<link rel="stylesheet" href="css/normalize.css">
-<link rel="stylesheet" href="css/small.css">
-<link rel="stylesheet" href="css/large.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
 
-<!-- JS Files -->
-<script src="js/course.js" defer></script>
-<script src="js/navigation.js" defer></script>
-<script src="js/date.js" defer></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normal-size.css" />
+  <link rel="stylesheet" href="css/small.css" />
+  <link rel="stylesheet" href="css/large.css" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="images/logo.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/logo.png" />
 </head>
+
 <body>
 
-<!-- Header -->
-<header>
+  <!-- Header -->
+  <header role="banner">
     <div class="header-container">
-        <img src="images/logo.png" alt="Site Logo" class="logo">
+      <a href="index.html" class="brand" aria-label="Reagan Otema Home">
+        <img src="images/logo.png" alt="Reagan Otema logo" class="logo" />
         <span class="site-name">Reagan Otema</span>
-        <button id="menu-toggle" aria-label="Open navigation menu">☰</button>
+      </a>
+
+      <!-- Hamburger for mobile -->
+      <button id="menu-toggle" class="hamburger" aria-label="Open navigation menu" aria-controls="main-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-</header>
+  </header>
 
-<!-- Navigation -->
-<nav id="main-nav">
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="chamber.html">Chamber</a></li>
-        <li><a href="final.html">Final</a></li>
-    </ul>
-</nav>
+  <!-- Main Content -->
+  <main id="main" role="main">
 
-<main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <img src="images/project3.jpg"
+           srcset="images/project3-800.jpg 800w, images/project3.jpg 1200w"
+           sizes="100vw"
+           alt="Clean, modern code workspace with soft lighting" />
+      <div class="hero-overlay">
+        <h1 class="hero-title">Reagan Otema | WDD231 Course Home</h1>
+        <p class="hero-subtitle">
+          Online student at BYU-Idaho (Software Development). I build responsive, accessible, and interactive web apps.
+        </p>
+        <a class="btn" href="#courses">Explore Courses</a>
+      </div>
+    </section>
 
-<!-- Hero Section -->
-<section class="hero">
-    <img src="images/hero.jpg" alt="Hero Image">
-    <div class="hero-overlay">
-        <h1>Hello, I'm Reagan</h1>
-        <p>Online student at BYU-Idaho studying Software Development. Building web applications and learning new technologies.</p>
-        <a href="#courses" class="btn">View My Courses</a>
-    </div>
-</section>
+    <!-- Courses Section -->
+    <section id="courses" class="courses" aria-labelledby="courses-heading">
+      <h2 id="courses-heading">My Courses & Upcoming Work</h2>
+      <div class="course-controls">
+        <div class="course-buttons" role="tablist">
+          <button data-filter="all" role="tab" aria-selected="true">All</button>
+          <button data-filter="wdd" role="tab" aria-selected="false">WDD</button>
+          <button data-filter="cse" role="tab" aria-selected="false">CSE</button>
+        </div>
+        <div class="sort-group">
+          <label for="sort-select">Sort by:</label>
+          <select id="sort-select">
+            <option value="due">Due date</option>
+            <option value="course">Course code</option>
+            <option value="status">Status</option>
+          </select>
+        </div>
+      </div>
+      <div id="course-container" class="course-cards" aria-live="polite"></div>
+    </section>
 
-<!-- Courses Section -->
-<section id="courses" class="courses">
-    <h2>My Courses & Learning</h2>
-    <div class="course-buttons">
-        <button data-filter="all">All Courses</button>
-        <button data-filter="wdd">WDD Courses</button>
-        <button data-filter="cse">CSE Courses</button>
-    </div>
-    <div id="course-container" class="course-cards"></div>
-</section>
-
-<!-- Skills Section -->
-<section class="skills">
-    <h2>My Skills</h2>
-    <ul>
-        <li>HTML & CSS</li>
-        <li>JavaScript & React</li>
+    <!-- Skills Section -->
+    <section class="skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      <ul class="skills-list">
+        <li>HTML & CSS (Flex/Grid, responsive)</li>
+        <li>Modern JavaScript (ES6+)</li>
+        <li>React basics</li>
         <li>Python & SQL</li>
         <li>Git & GitHub</li>
-    </ul>
-</section>
+        <li>Accessibility & Performance</li>
+      </ul>
+    </section>
 
-<!-- About Section -->
-<section class="about">
-    <h2>About Me</h2>
-    <p>Name: Reagan Otema</p>
-    <p>Email: <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a></p>
-    <p>Phone: +256772514889</p>
-    <p>Location: Uganda</p>
-    <h3>Currently Learning:</h3>
-    <ul>
-        <li>Advanced JavaScript (ES6+)</li>
-        <li>React & Node.js</li>
-        <li>Databases & SQL</li>
-        <li>Software Development Principles</li>
-    </ul>
-</section>
+    <!-- About Section -->
+    <section class="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <div class="about-container">
+        <div class="about-image">
+          <img src="images/profile.jpg" alt="Reagan Otema" />
+        </div>
+        <div class="about-text">
+          <p>
+            I am Reagan Otema, a dedicated software development student from Uganda with a strong passion for technology. 
+            Currently pursuing my studies at BYU-Idaho, I specialize in building responsive, accessible, and efficient web applications. 
+            My education focuses on modern JavaScript, React, Node.js, and database management, equipping me with practical skills for professional projects. 
+            I enjoy combining creativity and technical knowledge to solve real-world problems, aiming to contribute positively to Uganda's tech community.
+          </p>
 
-</main>
+          <ul class="contact-info">
+            <li><strong>Email:</strong> <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a></li>
+            <li><strong>Phone:</strong> +256 772 514 889</li>
+            <li><strong>Location:</strong> Uganda</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<!-- Footer -->
-<footer>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
     <div class="social">
-        <a href="https://github.com/reaganotema" target="_blank">GitHub</a> |
-        <a href="https://linkedin.com/in/reagan-otema" target="_blank">LinkedIn</a> |
-        <a href="#">Twitter</a>
+      <a href="https://github.com/reaganotema" target="_blank" rel="noopener">GitHub</a> |
+      <a href="https://linkedin.com/in/reagan-otema" target="_blank" rel="noopener">LinkedIn</a> |
+      <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
     </div>
     <p>&copy; <span id="currentYear"></span> Reagan Otema, Uganda</p>
-    <p id="lastModified"></p>
-</footer>
+    <p id="lastModified" aria-live="polite"></p>
+  </footer>
 
-<!-- JS Script -->
-<script>
-    // ==============================
-    // Hamburger Menu Toggle
-    // ==============================
-    const menuToggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('main-nav');
-
-    if(menuToggle && nav) {
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('open');
-            menuToggle.classList.toggle('active');
-        });
-    }
-
-    // ==============================
-    // Courses Data & Filter
-    // ==============================
-    const courses = [
-        { name: "WDD 101", credits: 3, completed: true },
-        { name: "WDD 121", credits: 3, completed: true },
-        { name: "CSE 120", credits: 4, completed: false },
-        { name: "CSE 131", credits: 4, completed: false }
-    ];
-
-    const courseContainer = document.getElementById('course-container');
-
-    function displayCourses(filter = "all") {
-        if(!courseContainer) return;
-        courseContainer.innerHTML = "";
-
-        const filtered = courses.filter(course => {
-            if(filter === "all") return true;
-            if(filter === "wdd") return course.name.startsWith("WDD");
-            if(filter === "cse") return course.name.startsWith("CSE");
-        });
-
-        filtered.forEach(course => {
-            const card = document.createElement('div');
-            card.className = course.completed ? 'course completed' : 'course in-progress';
-            card.innerHTML = `
-                <strong>${course.name}</strong> <br>
-                ${course.credits} credits <br>
-                <span class="status">${course.completed ? "✔ Completed" : "⏳ In Progress"}</span>
-            `;
-            courseContainer.appendChild(card);
-        });
-
-        const totalCredits = filtered.reduce((sum, c) => sum + c.credits, 0);
-        const total = document.createElement('p');
-        total.className = "total-credits";
-        total.textContent = `Total Credits: ${totalCredits}`;
-        courseContainer.appendChild(total);
-    }
-
-    // Filter buttons
-    document.querySelectorAll('.course-buttons button').forEach(btn => {
-        btn.addEventListener('click', () => displayCourses(btn.dataset.filter));
-    });
-
-    displayCourses();
-
-    // ==============================
-    // Footer Year & Last Modified
-    // ==============================
-    const yearSpan = document.getElementById('currentYear');
-    if(yearSpan) yearSpan.textContent = new Date().getFullYear();
-
-    const lastModifiedSpan = document.getElementById('lastModified');
-    if(lastModifiedSpan) {
-        const date = new Date(document.lastModified);
-        const options = { weekday:"long", year:"numeric", month:"long", day:"numeric", hour:"2-digit", minute:"2-digit" };
-        lastModifiedSpan.textContent = `Last Modified: ${date.toLocaleDateString("en-US", options)}`;
-    }
-</script>
-
+  <!-- JS -->
+  <script src="js/navigation.js" defer></script>
+  <script src="js/course.js" defer></script>
+  <script src="js/date.js" defer></script>
 </body>
 </html>

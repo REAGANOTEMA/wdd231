@@ -1,28 +1,36 @@
+/* ===========================
+   date.js
+   Updates footer with current year and last modified date/time
+   =========================== */
 
-  // ==============================
-  // Footer Date Info (Safe Version)
-  // ==============================
+document.addEventListener("DOMContentLoaded", () => {
+  const yearSpan = document.getElementById("currentYear");
+  const lastModifiedEl = document.getElementById("lastModified");
 
-  // Current Year
-  const yearSpan = document.getElementById('currentYear');
+  // Set current year
   if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
+    const currentYear = new Date().getFullYear();
+    yearSpan.textContent = currentYear;
   }
 
-  // Last Modified (formatted nicely)
-  const lastModifiedSpan = document.getElementById('lastModified');
-  if (lastModifiedSpan) {
-    const lastModifiedDate = new Date(document.lastModified);
+  // Set last modified date/time
+  if (lastModifiedEl) {
+    const lastModified = new Date(document.lastModified);
 
-    // Format as: Monday, September 2, 2025, 10:15 AM
+    // Format options: weekday, day, month, year, time
     const options = {
       weekday: "long",
       year: "numeric",
       month: "long",
       day: "numeric",
       hour: "2-digit",
-      minute: "2-digit"
+      minute: "2-digit",
+      second: "2-digit",
     };
 
-    lastModifiedSpan.textContent = `Last Modified: ${lastModifiedDate.toLocaleDateString("en-US", options)}`;
+    lastModifiedEl.textContent = `Last Updated: ${lastModified.toLocaleString(
+      undefined,
+      options
+    )}`;
   }
+});

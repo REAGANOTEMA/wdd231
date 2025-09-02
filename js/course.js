@@ -1,104 +1,131 @@
-// ==============================
-// Hamburger Menu Toggle
-// ==============================
-const menuToggle = document.getElementById('menu-toggle');
-const nav = document.getElementById('main-nav');
+/* ===========================
+   course.js
+   Handles rendering, filtering, and sorting of courses
+   =========================== */
 
-if (menuToggle && nav) {
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('open');
-        menuToggle.classList.toggle('active');
-    });
-}
-
-// ==============================
-// Courses Data
-// ==============================
+// Example dataset
 const courses = [
-    // ART130
-    { name: "Process Book A", course: "ART130.001", type: "Assignment", due: "2025-09-03T23:59:00", points: 50, completed: false },
-    { name: "WhatsApp Sign-Up", course: "ART130.001", type: "Discussion", due: "2025-09-03T23:59:00", points: null, completed: false },
-    { name: "Process Book B", course: "ART130.001", type: "Assignment", due: "2025-09-06T23:59:00", points: 50, completed: false },
-
-    // REL275A
-    { name: "Quiz Attendance", course: "REL275A.009", type: "Quiz", due: "2025-09-06T23:59:00", points: 2, completed: false },
-
-    // WRIT101
-    { name: "Draft: Your Life Story", course: "WRIT101.002", type: "Assignment", due: "2025-09-03T23:59:00", points: 2, completed: false },
-    { name: "WhatsApp Sign-up", course: "WRIT101.002", type: "Discussion", due: "2025-09-03T23:59:00", points: null, completed: false },
-    { name: "Final Submission: Your Life Story", course: "WRIT101.002", type: "Assignment", due: "2025-09-06T23:59:00", points: 12, completed: false },
-    { name: "Study & Quiz", course: "WRIT101.002", type: "Quiz", due: "2025-09-06T23:59:00", points: 20, completed: false },
-    { name: "Writing Project: One Story, Two Audiences", course: "WRIT101.002", type: "Assignment", due: "2025-09-06T23:59:00", points: 20, completed: false },
-
-    // WDD231
-    { name: "Course Home Page", course: "WDD231.001", type: "Assignment", due: "2025-09-06T23:59:00", points: 30, completed: false },
-
-    // CSE212
-    { name: "60-second Status Update", course: "CSE212.001", type: "Quiz", due: "2025-09-06T23:59:00", points: 5, completed: false },
-    { name: "Analyze: Performance", course: "CSE212.001", type: "Quiz", due: "2025-09-06T23:59:00", points: 50, completed: false },
-    { name: "Code: Dynamic Arrays", course: "CSE212.001", type: "Assignment", due: "2025-09-06T23:59:00", points: 50, completed: false },
-    { name: "Individual Activity: Dynamic Arrays & Performance", course: "CSE212.001", type: "Quiz", due: "2025-09-06T23:59:00", points: 10, completed: false },
-    { name: "Learning Activities: Dynamic Arrays & Performance", course: "CSE212.001", type: "Quiz", due: "2025-09-06T23:59:00", points: 10, completed: false },
-    { name: "Interview Question", course: "CSE212.001", type: "Assignment", due: "2025-09-06T23:59:00", points: 25, completed: false }
+  {
+    code: "WDD231",
+    title: "Web Frontend Development II",
+    due: "2025-09-10",
+    status: "in progress",
+    category: "wdd",
+    description: "Building responsive, interactive web apps using modern JavaScript, accessibility, and performance."
+  },
+  {
+    code: "CSE210",
+    title: "Programming with Classes",
+    due: "2025-09-20",
+    status: "upcoming",
+    category: "cse",
+    description: "Learn OOP principles with C#. Covers classes, objects, encapsulation, inheritance, and polymorphism."
+  },
+  {
+    code: "WDD130",
+    title: "Web Fundamentals",
+    due: "2025-09-05",
+    status: "completed",
+    category: "wdd",
+    description: "Intro to HTML, CSS, and design principles for building your first websites."
+  },
+  {
+    code: "CSE111",
+    title: "Intro to Databases",
+    due: "2025-09-15",
+    status: "upcoming",
+    category: "cse",
+    description: "Covers SQL, relational databases, and database design."
+  }
 ];
 
-// ==============================
-// Sort courses by due date
-// ==============================
-courses.sort((a, b) => new Date(a.due) - new Date(b.due));
+const container = document.getElementById("course-container");
+const filterButtons = document.querySelectorAll(".course-buttons button");
+const sortSelect = document.getElementById("sort-select");
 
-// ==============================
-// Display Courses
-// ==============================
-const courseContainer = document.getElementById('course-container');
+let activeFilter = "all";
 
-function displayCourses(filter = "all") {
-    if (!courseContainer) return;
-    courseContainer.innerHTML = "";
-
-    const filtered = courses.filter(course => {
-        if (filter === "all") return true;
-        if (filter === "wdd") return course.course.includes("WDD");
-        if (filter === "cse") return course.course.includes("CSE");
-        return true;
-    });
-
-    filtered.forEach(course => {
-        const card = document.createElement('div');
-        card.className = `course ${course.completed ? "completed" : "in-progress"}`;
-        const statusText = course.completed ? "✔ Completed" : "⏳ To Do";
-
-        card.innerHTML = `
-            <strong>${course.course}</strong> - ${course.name} <br>
-            Type: ${course.type} ${course.points !== null ? ` | Points: ${course.points}` : ""} <br>
-            Due: ${new Date(course.due).toLocaleString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit" })} <br>
-            <span class="status">${statusText}</span>
-        `;
-
-        courseContainer.appendChild(card);
-    });
+// Capitalize first letter
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// ==============================
-// Course Filter Buttons
-// ==============================
-const filterButtons = document.querySelectorAll('.course-buttons button');
-filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => displayCourses(btn.dataset.filter));
+// Format date nicely
+function formatDate(dateString) {
+  const options = { month: "short", day: "numeric", year: "numeric" };
+  return new Date(dateString).toLocaleDateString(undefined, options);
+}
+
+// Render courses dynamically
+function renderCourses(list) {
+  container.innerHTML = "";
+
+  if (list.length === 0) {
+    container.innerHTML = `<p>No courses found.</p>`;
+    return;
+  }
+
+  list.forEach((course, index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.setAttribute("tabindex", "0");
+
+    // Staggered animation
+    card.style.opacity = 0;
+    card.style.transform = "translateY(20px)";
+    setTimeout(() => {
+      card.style.transition = "all 0.6s ease";
+      card.style.opacity = 1;
+      card.style.transform = "translateY(0)";
+    }, 100 * index);
+
+    card.innerHTML = `
+      <h3>${course.code} – ${course.title}</h3>
+      <p><strong>Due:</strong> ${formatDate(course.due)}</p>
+      <p><strong>Status:</strong> ${capitalize(course.status)}</p>
+      <p>${course.description}</p>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// Apply filtering and sorting
+function applyFiltersAndSort() {
+  let list = [...courses];
+
+  // Filter
+  if (activeFilter !== "all") {
+    list = list.filter(c => c.category === activeFilter);
+  }
+
+  // Sort
+  const sortBy = sortSelect.value;
+  list.sort((a, b) => {
+    if (sortBy === "due") return new Date(a.due) - new Date(b.due);
+    if (sortBy === "course") return a.code.localeCompare(b.code);
+    if (sortBy === "status") return a.status.localeCompare(b.status);
+    return 0;
+  });
+
+  renderCourses(list);
+}
+
+// Event listeners for filters
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    activeFilter = button.dataset.filter;
+
+    // Update aria-selected for accessibility
+    filterButtons.forEach(btn =>
+      btn.setAttribute("aria-selected", btn === button ? "true" : "false")
+    );
+
+    applyFiltersAndSort();
+  });
 });
 
-// Initial load
-displayCourses();
+// Event listener for sort select
+sortSelect.addEventListener("change", applyFiltersAndSort);
 
-// ==============================
-// Footer Date Info
-// ==============================
-const yearSpan = document.getElementById('currentYear');
-const lastModifiedSpan = document.getElementById('lastModified');
-
-if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-if (lastModifiedSpan) {
-    const date = new Date(document.lastModified);
-    const options = { weekday:"long", year:"numeric", month:"long", day:"numeric", hour:"2-digit", minute:"2-digit" };
-    lastModifiedSpan.textContent = `Last Modified: ${date.toLocaleDateString("en-US", options)}`;
-}
+// Initial render
+applyFiltersAndSort();
