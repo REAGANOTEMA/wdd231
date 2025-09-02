@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Reagan Otema's WDD231 Course Home Page. Professional, responsive, and interactive web design." />
-  <meta name="author" content="Reagan Otema" />
-  <meta name="theme-color" content="#1a1a2e" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reagan Otema WDD231 course home page showcasing responsive, accessible, and interactive web design projects.">
+  <meta name="author" content="Reagan Otema">
+  <meta name="theme-color" content="#1a1a2e">
 
   <title>Reagan Otema | WDD231 Course Home</title>
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="css/normal-size.css" />
-  <link rel="stylesheet" href="css/small.css" />
-  <link rel="stylesheet" href="css/large.css" />
+  <link rel="stylesheet" href="styles/normal-size.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/large.css">
 
   <!-- Favicons -->
-  <link rel="icon" href="images/logo.png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="images/logo.png" />
+  <link rel="icon" href="images/logo.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="images/logo.png">
 </head>
 
 <body>
@@ -29,9 +29,22 @@
   <!-- Header -->
   <header role="banner">
     <div class="header-container">
+      
+      <!-- Navigation -->
+      <nav class="mobile-nav" id="main-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Brand / Logo -->
       <a href="index.html" class="brand" aria-label="Reagan Otema Home">
-        <img src="images/logo.png" alt="Reagan Otema logo" class="logo" />
         <span class="site-name">Reagan Otema</span>
+        <img src="images/logo.png" alt="Reagan Otema logo" class="logo">
       </a>
 
       <!-- Hamburger for mobile -->
@@ -40,6 +53,7 @@
         <span></span>
         <span></span>
       </button>
+
     </div>
   </header>
 
@@ -48,14 +62,14 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <img src="images/project3.jpg"
-           srcset="images/project3-800.jpg 800w, images/project3.jpg 1200w"
+      <img src="images/project3-800.jpg"
+           srcset="images/project3-400.jpg 400w, images/project3-800.jpg 800w"
            sizes="100vw"
-           alt="Clean, modern code workspace with soft lighting" />
+           alt="Clean, modern workspace with a computer and coding environment" />
       <div class="hero-overlay">
         <h1 class="hero-title">Reagan Otema | WDD231 Course Home</h1>
         <p class="hero-subtitle">
-          Online student at BYU-Idaho (Software Development). I build responsive, accessible, and interactive web apps.
+          Online student at BYU-Idaho (Software Development). I build responsive, accessible, and interactive web applications.
         </p>
         <a class="btn" href="#courses">Explore Courses</a>
       </div>
@@ -63,7 +77,7 @@
 
     <!-- Courses Section -->
     <section id="courses" class="courses" aria-labelledby="courses-heading">
-      <h2 id="courses-heading">My Courses & Upcoming Work</h2>
+      <h2 id="courses-heading">Courses & Upcoming Work</h2>
       <div class="course-controls">
         <div class="course-buttons" role="tablist">
           <button data-filter="all" role="tab" aria-selected="true">All</button>
@@ -83,7 +97,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="skills" aria-labelledby="skills-heading">
+    <section id="skills" class="skills" aria-labelledby="skills-heading">
       <h2 id="skills-heading">Skills</h2>
       <ul class="skills-list">
         <li>HTML & CSS (Flex/Grid, responsive)</li>
@@ -96,21 +110,17 @@
     </section>
 
     <!-- About Section -->
-    <section class="about" aria-labelledby="about-heading">
+    <section id="about" class="about" aria-labelledby="about-heading">
       <h2 id="about-heading">About Me</h2>
       <div class="about-container">
         <div class="about-image">
-          <img src="images/profile.jpg" alt="Reagan Otema" />
+          <img src="images/profile-optimized.jpg" alt="Reagan Otema smiling">
         </div>
         <div class="about-text">
           <p>
-            I am Reagan Otema, a dedicated software development student from Uganda with a strong passion for technology. 
-            Currently pursuing my studies at BYU-Idaho, I specialize in building responsive, accessible, and efficient web applications. 
-            My education focuses on modern JavaScript, React, Node.js, and database management, equipping me with practical skills for professional projects. 
-            I enjoy combining creativity and technical knowledge to solve real-world problems, aiming to contribute positively to Uganda's tech community.
+            I am Reagan Otema, a dedicated software development student from Uganda. Currently studying at BYU-Idaho, I focus on building responsive, accessible, and efficient web applications using modern JavaScript, React, Node.js, and databases.
           </p>
-
-          <ul class="contact-info">
+          <ul class="contact-info" id="contact">
             <li><strong>Email:</strong> <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a></li>
             <li><strong>Phone:</strong> +256 772 514 889</li>
             <li><strong>Location:</strong> Uganda</li>
@@ -133,8 +143,9 @@
   </footer>
 
   <!-- JS -->
-  <script src="js/navigation.js" defer></script>
-  <script src="js/course.js" defer></script>
-  <script src="js/date.js" defer></script>
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/course.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+
 </body>
 </html>
