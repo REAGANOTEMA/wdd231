@@ -14,64 +14,35 @@ body {
 
 /* Header */
 header {
-  background-color: #1a1a2e;
+  background-color: #8B0000; /* Dark Red */
   color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 2rem;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* Header Container - Flex Row */
 .header-container {
   display: flex;
-  justify-content: space-between; /* nav center, logo right */
   align-items: center;
-  max-width: 1200px;
+  justify-content: space-between; /* Navigation left, logo right */
   width: 100%;
-  margin: 0 auto;
+  max-width: 1200px;
+  gap: 2rem;
 }
 
-/* Navigation - Centered Ribbon */
-nav.mobile-nav {
-  flex: 1;
-}
-
-nav.mobile-nav ul {
-  display: flex;
-  justify-content: center; /* horizontal center */
-  gap: 2rem;               /* space between links */
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-nav.mobile-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.25rem 0.5rem;
-  font-size: 1rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-nav.mobile-nav a:hover,
-nav.mobile-nav a[aria-current="page"] {
-  color: #ffcc00;
-  transform: scale(1.05);
-}
-
-/* Brand / Logo - Right */
+/* Brand/logo */
 .brand {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 
 .logo {
-  height: 45px;
+  height: 50px;
   width: auto;
   object-fit: contain;
   background-color: #fff;
@@ -87,9 +58,36 @@ nav.mobile-nav a[aria-current="page"] {
   letter-spacing: 0.5px;
 }
 
-/* Hamburger Menu (Desktop Hidden) */
+/* Navigation */
+nav.mobile-nav {
+  display: block;
+}
+
+nav.mobile-nav ul {
+  display: flex;
+  gap: 2rem;
+  justify-content: center; /* Links centered horizontally */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav.mobile-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+nav.mobile-nav a:hover,
+nav.mobile-nav a[aria-current="page"] {
+  color: #FFD700; /* Dark Yellow */
+  transform: scale(1.05);
+}
+
 .hamburger {
-  display: none;
+  display: none; /* hidden on large screens */
 }
 
 /* Hero Section */
@@ -120,6 +118,7 @@ nav.mobile-nav a[aria-current="page"] {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 1.5s ease forwards 0.5s;
+  color: #fff;
 }
 
 .hero-subtitle {
@@ -128,12 +127,13 @@ nav.mobile-nav a[aria-current="page"] {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 1.5s ease forwards 1.5s;
+  color: #fff;
 }
 
 .btn {
   font-size: 1.125rem;
   padding: 0.75rem 1.5rem;
-  background-color: #ffcc00;
+  background-color: #FFD700; /* Dark Yellow */
   color: #1a1a2e;
   border: none;
   border-radius: 6px;
@@ -160,6 +160,7 @@ nav.mobile-nav a[aria-current="page"] {
   font-size: 2rem;
   margin-bottom: 2rem;
   text-align: center;
+  color: #FFD700; /* Dark Yellow headings */
 }
 
 /* Courses Controls */
@@ -168,6 +169,7 @@ nav.mobile-nav a[aria-current="page"] {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .course-buttons {
@@ -199,10 +201,6 @@ nav.mobile-nav a[aria-current="page"] {
 }
 
 /* About Section */
-.about {
-  font-size: 1.125rem;
-}
-
 .about-container {
   display: flex;
   flex-direction: row;
@@ -227,6 +225,7 @@ nav.mobile-nav a[aria-current="page"] {
   font-size: 1.1rem;
   line-height: 1.7;
   text-align: left;
+  color: #fff;
 }
 
 .about-text p {
@@ -237,6 +236,7 @@ nav.mobile-nav a[aria-current="page"] {
   list-style: none;
   padding: 0;
   margin-top: 1rem;
+  color: #fff;
 }
 
 .contact-info li {
@@ -248,8 +248,18 @@ footer {
   text-align: center;
   padding: 2rem;
   font-size: 1rem;
-  background-color: #1a1a2e;
+  background-color: #00008B; /* Dark Blue */
   color: #fff;
+}
+
+.social a {
+  color: #FFD700; /* Dark Yellow links */
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.social a:hover {
+  text-decoration: underline;
 }
 
 /* Animations */
@@ -266,4 +276,89 @@ footer {
 @keyframes float {
   0% { transform: translateY(0); }
   100% { transform: translateY(-15px); }
+}
+/* ===========================
+   Hero Section - Full Screen
+   =========================== */
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  background-color: #000; /* fallback */
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* fill the screen */
+  object-position: center top; /* focus on face/top */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  text-align: center;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  background-color: rgba(0, 0, 0, 0.4); /* subtle overlay for readability */
+  border-radius: 8px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #FFD700; /* Dark Yellow */
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  background-color: #FFD700;
+  color: #1a1a2e;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
 }
