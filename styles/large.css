@@ -8,7 +8,7 @@ body {
   line-height: 1.7;
   font-family: 'Roboto', sans-serif;
   color: #fff;
-  background-color: #12121f;
+  background-color: #0a172e;
   margin: 0;
 }
 
@@ -189,7 +189,7 @@ nav.mobile-nav a[aria-current="page"] {
 
 .course-cards .card:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+  box-shadow: 0 12px 24px rgba(165, 5, 11, 0.2);
 }
 
 /* Skills */
@@ -360,5 +360,65 @@ footer {
   }
   .hero-subtitle {
     font-size: 1.5rem;
+  }
+}
+/* ===== Footer Styling ===== */
+footer {
+  background: #312b1e;
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  border-top: 2px solid #2e2e4d;
+}
+
+/* Row layout for footer sections */
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Section headings */
+.footer-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  color: #00adb5;   /* accent color */
+}
+
+/* Icons inside each section */
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.footer-icons a {
+  font-size: 1.5rem;
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-icons a:hover {
+  color: #00adb5;
+  transform: scale(1.2);
+}
+
+/* Copyright */
+footer p {
+  font-size: 0.9rem;
+  margin: 0.2rem 0;
+  color: #cccccc;
+}
+
+/* Responsive stacking on mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
   }
 }

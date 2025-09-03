@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#1a1a2e">
 
   <title>Reagan Otema | WDD231 Course Home</title>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,14 +37,15 @@
           <li><a href="#courses">Courses</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
-      <!-- Brand / Logo -->
+      <!-- Brand / Logo with contact -->
       <a href="index.html" class="brand" aria-label="Reagan Otema Home">
-        <span class="site-name">Reagan Otema</span>
         <img src="images/reaganotemalogo.png" alt="Reagan Otema logo" class="logo">
+        <span class="site-name">Reagan Otema</span>
+        <div class="contact-mini">
+        </div>
       </a>
 
       <!-- Hamburger for mobile -->
@@ -62,8 +63,8 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <img src="images/project2.jpg"
-           srcset="images/project2.jpg 200w, images/project2.jpg 800w"
+      <img src="images/hero.jpg"
+           srcset="images/hero.jpg 200w, images/hero.jpg 800w"
            sizes="100vw"
            alt="Clean, modern workspace with a computer and coding environment" />
       <div class="hero-overlay">
@@ -109,52 +110,75 @@
       </ul>
     </section>
 
-   <!-- About Section -->
-<section id="about" class="about" aria-labelledby="about-heading">
-  <h2 id="about-heading">About Me</h2>
-  <div class="about-container">
-    <div class="about-image">
-      <img src="images/profile.jpg" alt="Reagan Otema smiling" />
-    </div>
-    <div class="about-text">
-      <p>
-        I am Reagan Otema, a dedicated software development student from Uganda. 
-        Currently studying at BYU-Idaho, I focus on building responsive, accessible, 
-        and efficient web applications using modern JavaScript, React, Node.js, and databases.
-      </p>
-      <ul class="contact-info" id="contact">
-        <li>
-          <strong>Email:</strong> 
-          <a href="mailto:rotema@byupathway.edu" 
-             aria-label="Email Reagan Otema at rotema@byupathway.edu" 
-             title="Email Reagan Otema">
-             rotema@pathway.edu
-          </a>
-        </li>
-        <li>
-          <strong>Phone:</strong> 
-          <a href="tel:+256772514889" title="Call Reagan Otema">+256 772 514 889</a>
-        </li>
-        <li>
-          <strong>Location:</strong> Uganda
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <!-- About Section -->
+    <section id="about" class="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <div class="about-container">
+        <div class="about-image">
+          <img src="images/profile.jpg" alt="Reagan Otema smiling" />
+        </div>
+        <div class="about-text">
+          <p>
+            I am Reagan Otema, a dedicated software development student from Uganda. 
+            Currently studying at BYU-Idaho, I focus on building responsive, accessible, 
+            and efficient web applications using modern JavaScript, React, Node.js, and databases.
+          </p>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <!-- Footer -->
-  <footer role="contentinfo">
-    <div class="social">
-      <a href="https://github.com/reaganotema" target="_blank" rel="noopener">GitHub</a> |
-      <a href="https://linkedin.com/in/reagan-otema" target="_blank" rel="noopener">LinkedIn</a> |
-      <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a>
+ <!-- Footer -->
+<footer role="contentinfo">
+  <div class="footer-container">
+
+    <!-- Social Media Section -->
+    <div class="footer-section">
+      <h3>Social Media</h3>
+      <div class="footer-icons">
+        <a href="https://github.com/reaganotema" target="_blank" rel="noopener" title="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/reagan-otema" target="_blank" rel="noopener" title="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </div>
     </div>
-    <p>&copy; <span id="currentYear"></span> Reagan Otema, Uganda</p>
-    <p id="lastModified" aria-live="polite"></p>
-  </footer>
+
+    <!-- Contacts Section -->
+    <div class="footer-section">
+      <h3>Contacts</h3>
+      <div class="footer-icons">
+        <a href="mailto:rotema@pathway.edu" title="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="tel:+256772514889" title="Phone">
+          <i class="fa-solid fa-phone"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Location Section -->
+    <div class="footer-section">
+      <h3>Location</h3>
+      <div class="footer-icons">
+        <a href="#" title="Uganda">
+          <i class="fa-solid fa-location-dot"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <p>&copy; <span id="currentYear"></span> Reagan Otema, Uganda</p>
+  <p id="lastModified" aria-live="polite"></p>
+</footer>
+
 
   <!-- JS -->
   <script src="scripts/navigation.js" defer></script>
