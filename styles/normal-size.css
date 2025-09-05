@@ -1,5 +1,5 @@
 /* ===========================
-   Normal Screen Styles (< 480px)
+   Mobile Styles (<480px)
    =========================== */
 
 /* General Body */
@@ -12,9 +12,11 @@ body {
   margin: 0;
 }
 
-/* Header */
+/* ===========================
+   Header
+   =========================== */
 header {
-  background-color: #8B0000; /* Dark Red */
+  background-color: #8B0000;
   color: #fff;
   padding: 0.5rem 1rem;
   position: sticky;
@@ -28,13 +30,12 @@ header {
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Logo right, nav left */
+  justify-content: space-between;
   width: 100%;
   max-width: 480px;
   gap: 0.5rem;
 }
 
-/* Brand/logo */
 .brand {
   display: flex;
   align-items: center;
@@ -56,11 +57,11 @@ header {
   color: #fff;
 }
 
-/* Navigation Ribbon */
+/* Navigation */
 nav.mobile-nav ul {
   display: flex;
-  flex-wrap: nowrap; /* Keep links in one line */
-  gap: 1rem;         /* Space between links */
+  flex-wrap: wrap;
+  gap: 0.8rem;
   justify-content: center;
   margin: 0;
   padding: 0;
@@ -77,16 +78,20 @@ nav.mobile-nav a {
 
 nav.mobile-nav a:hover,
 nav.mobile-nav a[aria-current="page"] {
-  color: #FFD700; /* Dark Yellow */
+  color: #FFD700;
   transform: scale(1.05);
 }
 
 .hamburger {
   display: block;
-  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
 }
 
-/* Hero Section */
+/* ===========================
+   Hero Section
+   =========================== */
 .hero {
   position: relative;
   height: 50vh;
@@ -102,34 +107,38 @@ nav.mobile-nav a[aria-current="page"] {
 
 .hero-overlay {
   position: absolute;
-  bottom: 10%;
-  left: 5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   max-width: 90%;
   text-align: center;
+  padding: 1rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 6px;
 }
 
 .hero-title {
   font-size: 1.8rem;
   margin-bottom: 0.6rem;
+  color: #FFD700;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 1.5s ease forwards 0.5s;
-  color: #fff;
 }
 
 .hero-subtitle {
   font-size: 1rem;
   margin-bottom: 1rem;
+  color: #fff;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 1.5s ease forwards 1.5s;
-  color: #fff;
 }
 
 .btn {
   font-size: 0.95rem;
   padding: 0.5rem 1rem;
-  background-color: #FFD700; /* Dark Yellow */
+  background-color: #FFD700;
   color: #1a1a2e;
   border: none;
   border-radius: 5px;
@@ -141,7 +150,9 @@ nav.mobile-nav a[aria-current="page"] {
   transform: scale(1.05);
 }
 
-/* Sections */
+/* ===========================
+   Sections
+   =========================== */
 .courses,
 .skills,
 .about {
@@ -150,13 +161,11 @@ nav.mobile-nav a[aria-current="page"] {
   margin: 0 auto;
 }
 
-.courses h2,
-.skills h2,
-.about h2 {
+h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
-  color: #FFD700; /* Dark Yellow headings */
+  color: #FFD700;
 }
 
 /* Courses Controls */
@@ -182,7 +191,14 @@ nav.mobile-nav a[aria-current="page"] {
 }
 
 .course-cards .card {
+  background-color: #1a1a2e;
+  padding: 0.8rem;
+  border-radius: 6px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-cards .card.completed {
+  border: 2px solid #00FF7F;
 }
 
 .course-cards .card:hover {
@@ -240,26 +256,59 @@ nav.mobile-nav a[aria-current="page"] {
   color: #fff;
 }
 
-/* Footer */
+/* ===========================
+   Footer
+   =========================== */
 footer {
-  text-align: center;
-  padding: 1.2rem;
-  font-size: 0.9rem;
-  background-color: #00008B; /* Dark Blue */
+  background: #1a1a2e;
   color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 2px solid #2e2e4d;
 }
 
-.social a {
-  color: #FFD700; /* Dark Yellow links */
-  text-decoration: none;
-  margin: 0 0.5rem;
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-.social a:hover {
-  text-decoration: underline;
+.footer-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  color: #00adb5;
 }
 
-/* Animations */
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.footer-icons a {
+  font-size: 1.5rem;
+  color: #fff;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-icons a:hover {
+  color: #00adb5;
+  transform: scale(1.2);
+}
+
+footer p {
+  font-size: 0.9rem;
+  margin: 0.2rem 0;
+  color: #cccccc;
+}
+
+/* ===========================
+   Animations
+   =========================== */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -274,61 +323,11 @@ footer {
   0% { transform: translateY(0); }
   100% { transform: translateY(-8px); }
 }
-/* ===== Footer Styling ===== */
-footer {
-  background: #1a1a2e;
-  color: #ffffff;
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 2rem;
-  border-top: 2px solid #2e2e4d;
-}
 
-/* Row layout for footer sections */
-.footer-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Section headings */
-.footer-section h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-  font-weight: 600;
-  color: #00adb5;   /* accent color */
-}
-
-/* Icons inside each section */
-.footer-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-}
-
-.footer-icons a {
-  font-size: 1.5rem;
-  color: #ffffff;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.footer-icons a:hover {
-  color: #00adb5;
-  transform: scale(1.2);
-}
-
-/* Copyright */
-footer p {
-  font-size: 0.9rem;
-  margin: 0.2rem 0;
-  color: #cccccc;
-}
-
-/* Responsive stacking on mobile */
-@media (max-width: 768px) {
+/* ===========================
+   Mobile Footer Stacking
+   =========================== */
+@media (max-width: 480px) {
   .footer-container {
     flex-direction: column;
     text-align: center;

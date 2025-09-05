@@ -8,8 +8,10 @@
   <meta name="theme-color" content="#1a1a2e">
 
   <title>Reagan Otema | WDD231 Course Home</title>
-  <!-- Use the working CDN link -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,13 +26,17 @@
   <link rel="icon" href="images/r-logo.jpg" sizes="32x32">
   <link rel="apple-touch-icon" href="images/r-logo.jpg">
 </head>
-
 <body>
 
   <!-- Header -->
   <header role="banner">
     <div class="header-container">
-      
+      <!-- Brand / Logo -->
+      <a href="index.html" class="brand" aria-label="Reagan Otema Home">
+        <img src="images/r-logo.jpg" alt="Reagan Otema logo" class="logo">
+        <span class="site-name">Reagan Otema</span>
+      </a>
+
       <!-- Navigation -->
       <nav class="mobile-nav" id="main-nav" role="navigation" aria-label="Main navigation">
         <ul>
@@ -41,21 +47,12 @@
         </ul>
       </nav>
 
-      <!-- Brand / Logo with contact -->
-      <a href="index.html" class="brand" aria-label="Reagan Otema Home">
-        <img src="images/r-logo.jpg" alt="Reagan Otema logo" class="logo">
-        <span class="site-name">Reagan Otema</span>
-        <div class="contact-mini">
-        </div>
-      </a>
-
-      <!-- Hamburger for mobile -->
-      <button id="menu-toggle" class="hamburger" aria-label="Open navigation menu" aria-controls="main-nav" aria-expanded="false">
+      <!-- Hamburger -->
+      <button id="menu-toggle" class="hamburger" aria-label="Toggle navigation menu" aria-controls="main-nav" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
-
     </div>
   </header>
 
@@ -63,11 +60,11 @@
   <main id="main" role="main">
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" aria-label="Hero section">
       <img src="images/hero.jpg"
            srcset="images/hero.jpg 200w, images/hero.jpg 800w"
            sizes="100vw"
-           alt="Clean, modern workspace with a computer and coding environment" />
+           alt="Clean, modern workspace with a computer and coding environment">
       <div class="hero-overlay">
         <h1 class="hero-title">Reagan Otema | WDD231 Course Home</h1>
         <p class="hero-subtitle">
@@ -78,7 +75,7 @@
     </section>
 
     <!-- Courses Section -->
-    <section id="courses" class="courses" aria-labelledby="courses-heading">
+    <section id="courses" class="courses" aria-labelledby="courses-heading" role="region">
       <h2 id="courses-heading">Courses & Upcoming Work</h2>
       <div class="course-controls">
         <div class="course-buttons" role="tablist">
@@ -95,7 +92,32 @@
           </select>
         </div>
       </div>
-      <div id="course-container" class="course-cards" aria-live="polite"></div>
+
+      <!-- Course Cards Grid -->
+      <div id="course-container" class="course-cards" aria-live="polite">
+        <!-- Example Course Cards -->
+        <div class="card" data-course="wdd">
+          <h3>WDD 231: Web Development Fundamentals</h3>
+          <p>Due: Sep 15, 2025</p>
+          <p>Status: In Progress</p>
+        </div>
+        <div class="card" data-course="wdd">
+          <h3>WDD 232: Advanced CSS & Layouts</h3>
+          <p>Due: Oct 01, 2025</p>
+          <p>Status: Not Started</p>
+        </div>
+        <div class="card" data-course="cse">
+          <h3>CSE 150: Intro to Programming</h3>
+          <p>Due: Sep 20, 2025</p>
+          <p>Status: Completed</p>
+        </div>
+        <div class="card" data-course="cse">
+          <h3>CSE 200: Database Concepts</h3>
+          <p>Due: Oct 10, 2025</p>
+          <p>Status: In Progress</p>
+        </div>
+        <!-- Additional courses can be added here -->
+      </div>
     </section>
 
     <!-- Skills Section -->
@@ -116,7 +138,7 @@
       <h2 id="about-heading">About Me</h2>
       <div class="about-container">
         <div class="about-image">
-          <img src="images/profile.jpg" alt="Reagan Otema smiling" />
+          <img src="images/profile.jpg" alt="Reagan Otema smiling">
         </div>
         <div class="about-text">
           <p>
@@ -130,56 +152,45 @@
 
   </main>
 
- <!-- Footer -->
-<footer role="contentinfo">
-  <div class="footer-container">
-
-    <!-- Social Media Section -->
-    <div class="footer-section">
-      <h3>Social Media</h3>
-      <div class="footer-icons">
-        <a href="https://github.com/reaganotema" target="_blank" rel="noopener" title="GitHub">
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/reagan-otema" target="_blank" rel="noopener" title="LinkedIn">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-        <a href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
-          <i class="fa-brands fa-twitter"></i>
-        </a>
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Social Media</h3>
+        <div class="footer-icons">
+          <a href="https://github.com/reaganotema" target="_blank" rel="noopener noreferrer" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/reagan-otema" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" title="Twitter">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Contacts</h3>
+        <div class="footer-icons">
+          <a href="mailto:rotema@pathway.edu" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="tel:+256772514889" title="Phone">
+            <i class="fa-solid fa-phone"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Location</h3>
+        <div class="footer-icons">
+          <i class="fa-solid fa-location-dot" title="Uganda"></i>
+        </div>
       </div>
     </div>
 
-    <!-- Contacts Section -->
-    <div class="footer-section">
-      <h3>Contacts</h3>
-      <div class="footer-icons">
-        <a href="mailto:rotema@pathway.edu" title="Email">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-        <a href="tel:+256772514889" title="Phone">
-          <i class="fa-solid fa-phone"></i>
-        </a>
-      </div>
-    </div>
-
-    <!-- Location Section -->
-    <div class="footer-section">
-      <h3>Location</h3>
-      <div class="footer-icons">
-        <a href="#" title="Uganda">
-          <i class="fa-solid fa-location-dot"></i>
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Copyright -->
-  <p>&copy; <span id="currentYear"></span> Reagan Otema, Uganda</p>
-  <p id="lastModified" aria-live="polite"></p>
-</footer>
-
+    <p>&copy; <span id="currentYear"></span> Reagan Otema, Uganda</p>
+    <p id="lastModified" aria-live="polite"></p>
+  </footer>
 
   <!-- JS -->
   <script src="scripts/navigation.js" defer></script>

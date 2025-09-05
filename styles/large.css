@@ -1,8 +1,6 @@
 /* ===========================
-   Large Screen Styles (≥ 769px)
+   General Body
    =========================== */
-
-/* General Body */
 body {
   font-size: 1.125rem;
   line-height: 1.7;
@@ -12,7 +10,9 @@ body {
   margin: 0;
 }
 
-/* Header */
+/* ===========================
+   Header
+   =========================== */
 header {
   background-color: #8B0000; /* Dark Red */
   color: #fff;
@@ -28,13 +28,12 @@ header {
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Navigation left, logo right */
+  justify-content: space-between;
   width: 100%;
   max-width: 1200px;
   gap: 2rem;
 }
 
-/* Brand/logo */
 .brand {
   display: flex;
   align-items: center;
@@ -59,20 +58,21 @@ header {
 }
 
 /* Navigation */
-nav.mobile-nav {
-  display: block;
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
-nav.mobile-nav ul {
+nav ul {
   display: flex;
   gap: 2rem;
-  justify-content: center; /* Links centered horizontally */
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
-nav.mobile-nav a {
+nav a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
@@ -80,63 +80,75 @@ nav.mobile-nav a {
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
-nav.mobile-nav a:hover,
-nav.mobile-nav a[aria-current="page"] {
-  color: #FFD700; /* Dark Yellow */
+nav a:hover,
+nav a[aria-current="page"] {
+  color: #FFD700;
   transform: scale(1.05);
 }
 
+/* Hamburger menu for mobile */
 .hamburger {
-  display: none; /* hidden on large screens */
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
-/* Hero Section */
+/* ===========================
+   Hero Section
+   =========================== */
 .hero {
   position: relative;
-  height: 70vh;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
+  background-color: #000;
 }
 
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   animation: kenburns 20s ease-in-out infinite alternate;
 }
 
 .hero-overlay {
   position: absolute;
-  bottom: 20%;
-  left: 10%;
-  max-width: 50%;
-  text-align: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  text-align: center;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
 }
 
 .hero-title {
   font-size: 3rem;
-  margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateY(20px);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #FFD700;
   animation: fadeUp 1.5s ease forwards 0.5s;
-  color: #fff;
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  transform: translateY(20px);
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
   animation: fadeUp 1.5s ease forwards 1.5s;
-  color: #fff;
 }
 
 .btn {
-  font-size: 1.125rem;
   padding: 0.75rem 1.5rem;
-  background-color: #FFD700; /* Dark Yellow */
+  font-size: 1.125rem;
+  background-color: #FFD700;
   color: #1a1a2e;
-  border: none;
   border-radius: 6px;
+  text-decoration: none;
+  border: none;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -145,25 +157,23 @@ nav.mobile-nav a[aria-current="page"] {
   transform: scale(1.05);
 }
 
-/* Sections */
-.courses,
-.skills,
-.about {
+/* ===========================
+   Sections (Courses, Skills, About)
+   =========================== */
+section {
   padding: 4rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.courses h2,
-.skills h2,
-.about h2 {
+h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
   text-align: center;
-  color: #FFD700; /* Dark Yellow headings */
+  color: #FFD700;
 }
 
-/* Courses Controls */
+/* Courses */
 .course-controls {
   display: flex;
   justify-content: space-between;
@@ -184,7 +194,15 @@ nav.mobile-nav a[aria-current="page"] {
 }
 
 .course-cards .card {
+  background-color: #1a1a2e;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-cards .card.completed {
+  border: 2px solid #00FF7F;
 }
 
 .course-cards .card:hover {
@@ -200,7 +218,7 @@ nav.mobile-nav a[aria-current="page"] {
   font-size: 1.125rem;
 }
 
-/* About Section */
+/* About */
 .about-container {
   display: flex;
   flex-direction: row;
@@ -208,7 +226,6 @@ nav.mobile-nav a[aria-current="page"] {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 2rem;
 }
 
 .about-image img {
@@ -232,137 +249,9 @@ nav.mobile-nav a[aria-current="page"] {
   margin-bottom: 1rem;
 }
 
-.contact-info {
-  list-style: none;
-  padding: 0;
-  margin-top: 1rem;
-  color: #fff;
-}
-
-.contact-info li {
-  margin-bottom: 0.5rem;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 1rem;
-  background-color: #00008B; /* Dark Blue */
-  color: #fff;
-}
-
-.social a {
-  color: #FFD700; /* Dark Yellow links */
-  text-decoration: none;
-  margin: 0 0.5rem;
-}
-
-.social a:hover {
-  text-decoration: underline;
-}
-
-/* Animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes kenburns {
-  from { transform: scale(1) translate(0,0); }
-  to { transform: scale(1.1) translate(-2%,-2%); }
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-15px); }
-}
 /* ===========================
-   Hero Section - Full Screen
+   Footer
    =========================== */
-.hero {
-  position: relative;
-  width: 100vw;
-  height: 100vh; /* Full viewport height */
-  overflow: hidden;
-  background-color: #000; /* fallback */
-}
-
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;       /* fill the screen */
-  object-position: center top; /* focus on face/top */
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 90%;
-  text-align: center;
-  color: #fff;
-  padding: 1.5rem 2rem;
-  background-color: rgba(0, 0, 0, 0.4); /* subtle overlay for readability */
-  border-radius: 8px;
-}
-
-.hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-  color: #FFD700; /* Dark Yellow */
-}
-
-.hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 1.2rem;
-  line-height: 1.5;
-}
-
-.btn {
-  padding: 0.75rem 1.5rem;
-  font-size: 1.125rem;
-  background-color: #FFD700;
-  color: #1a1a2e;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-}
-
-/* Responsive adjustments */
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.8rem;
-  }
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-  .hero-title {
-    font-size: 2.2rem;
-  }
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-}
-
-@media (min-width: 769px) {
-  .hero-title {
-    font-size: 3rem;
-  }
-  .hero-subtitle {
-    font-size: 1.5rem;
-  }
-}
-/* ===== Footer Styling ===== */
 footer {
   background: #312b1e;
   color: #ffffff;
@@ -372,7 +261,6 @@ footer {
   border-top: 2px solid #2e2e4d;
 }
 
-/* Row layout for footer sections */
 .footer-container {
   display: flex;
   justify-content: space-around;
@@ -382,15 +270,13 @@ footer {
   margin-bottom: 1.5rem;
 }
 
-/* Section headings */
 .footer-section h3 {
   font-size: 1.1rem;
   margin-bottom: 0.8rem;
   font-weight: 600;
-  color: #00adb5;   /* accent color */
+  color: #00adb5;
 }
 
-/* Icons inside each section */
 .footer-icons {
   display: flex;
   justify-content: center;
@@ -408,17 +294,55 @@ footer {
   transform: scale(1.2);
 }
 
-/* Copyright */
 footer p {
   font-size: 0.9rem;
   margin: 0.2rem 0;
   color: #cccccc;
 }
 
-/* Responsive stacking on mobile */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
+/* ===========================
+   Animations
+   =========================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes kenburns {
+  from { transform: scale(1) translate(0,0); }
+  to { transform: scale(1.1) translate(-2%,-2%); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
+
+/* ===========================
+   Responsive Styles
+   =========================== */
+
+/* Small phones */
+@media (max-width: 480px) {
+  .hero-title { font-size: 1.8rem; }
+  .hero-subtitle { font-size: 1rem; }
+  nav ul { flex-direction: column; gap: 1rem; }
+  .course-cards { grid-template-columns: 1fr; }
+  .skills-list { grid-template-columns: 1fr; }
+  .about-container { flex-direction: column; gap: 1.5rem; }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-title { font-size: 2.2rem; }
+  .hero-subtitle { font-size: 1.2rem; }
+  .course-cards { grid-template-columns: repeat(2, 1fr); }
+  .skills-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Medium desktops */
+@media (min-width: 769px) {
+  .hero-title { font-size: 3rem; }
+  .hero-subtitle { font-size: 1.5rem; }
+  .course-cards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
 }
