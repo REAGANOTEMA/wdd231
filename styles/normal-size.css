@@ -1,5 +1,5 @@
 /* ===========================
-   Mobile Styles (<480px)
+   Mobile Styles (<480px) - FINAL
    =========================== */
 
 /* General Body */
@@ -10,6 +10,7 @@ body {
   color: #fff;
   background-color: #12121f;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 /* ===========================
@@ -59,13 +60,17 @@ header {
 
 /* Navigation */
 nav.mobile-nav ul {
-  display: flex;
-  flex-wrap: wrap;
+  display: none; /* hidden by default */
+  flex-direction: column;
   gap: 0.8rem;
   justify-content: center;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+nav.mobile-nav.active ul {
+  display: flex;
 }
 
 nav.mobile-nav a {
@@ -82,11 +87,32 @@ nav.mobile-nav a[aria-current="page"] {
   transform: scale(1.05);
 }
 
+/* Hamburger */
 .hamburger {
-  display: block;
-  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
   cursor: pointer;
-  color: #fff;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* ===========================
@@ -184,6 +210,22 @@ h2 {
   justify-content: center;
 }
 
+.course-buttons button {
+  background: #1a1a2e;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.course-buttons button[aria-selected="true"],
+.course-buttons button:hover {
+  background-color: #FFD700;
+  color: #1a1a2e;
+}
+
 .course-cards {
   display: grid;
   grid-template-columns: 1fr;
@@ -245,20 +287,7 @@ h2 {
   margin-bottom: 0.6rem;
 }
 
-.contact-info {
-  list-style: none;
-  padding: 0;
-  margin-top: 0.6rem;
-}
-
-.contact-info li {
-  margin-bottom: 0.3rem;
-  color: #fff;
-}
-
-/* ===========================
-   Footer
-   =========================== */
+/* Footer */
 footer {
   background: #1a1a2e;
   color: #fff;
@@ -269,11 +298,10 @@ footer {
 
 .footer-container {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .footer-section h3 {
@@ -300,15 +328,7 @@ footer {
   transform: scale(1.2);
 }
 
-footer p {
-  font-size: 0.9rem;
-  margin: 0.2rem 0;
-  color: #cccccc;
-}
-
-/* ===========================
-   Animations
-   =========================== */
+/* Animations */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -324,12 +344,66 @@ footer p {
   100% { transform: translateY(-8px); }
 }
 
-/* ===========================
-   Mobile Footer Stacking
-   =========================== */
-@media (max-width: 480px) {
+  footer {
+    background-color: #1a1a2e;
+    color: #fff;
+    padding: 2rem 1rem;
+    font-family: 'Roboto', sans-serif;
+  }
+
   .footer-container {
-    flex-direction: column;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start;
+    gap: 80px; /* Space between sections */
+    flex-wrap: wrap; /* Responsive stacking */
     text-align: center;
   }
-}
+
+  .footer-section h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 1.5rem;
+  }
+
+  .footer-icons a {
+    color: #fff;
+    transition: color 0.3s;
+  }
+
+  .footer-icons a:hover {
+    color: #ffcc00;
+  }
+
+  .contact-info {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+  }
+
+  .contact-info li {
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-info a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .contact-info a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-copy {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #ccc;
+    font-size: 0.9rem;
+  }
+

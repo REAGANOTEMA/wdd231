@@ -12,11 +12,9 @@ body {
   margin: 0;
 }
 
-/* ===========================
-   Header
-   =========================== */
+/* Header */
 header {
-  background-color: #8B0000; 
+  background-color: #8B0000; /* Dark Red */
   color: #fff;
   padding: 0.5rem 1rem;
   position: sticky;
@@ -30,12 +28,13 @@ header {
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Logo right, links left */
   width: 100%;
   max-width: 1000px;
   gap: 1rem;
 }
 
+/* Brand/logo */
 .brand {
   display: flex;
   align-items: center;
@@ -58,12 +57,12 @@ header {
   color: #fff;
 }
 
-/* Navigation */
+/* Navigation Ribbon */
 nav.mobile-nav ul {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
+  flex-wrap: nowrap; /* Keep links in one line */
+  gap: 1.5rem;       /* Space between links */
+  justify-content: center; /* Center links horizontally */
   margin: 0;
   padding: 0;
   list-style: none;
@@ -79,20 +78,16 @@ nav.mobile-nav a {
 
 nav.mobile-nav a:hover,
 nav.mobile-nav a[aria-current="page"] {
-  color: #FFD700;
+  color: #FFD700; /* Dark Yellow */
   transform: scale(1.05);
 }
 
 .hamburger {
   display: block;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #fff;
+  margin-top: 0.5rem;
 }
 
-/* ===========================
-   Hero Section
-   =========================== */
+/* Hero Section */
 .hero {
   position: relative;
   height: 60vh;
@@ -108,39 +103,34 @@ nav.mobile-nav a[aria-current="page"] {
 
 .hero-overlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 90%;
-  text-align: center;
-  padding: 1.5rem 2rem;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 8px;
+  bottom: 15%;
+  left: 5%;
+  max-width: 70%;
+  text-align: left;
 }
 
 .hero-title {
   font-size: 2.2rem;
-  font-weight: 700;
   margin-bottom: 0.8rem;
-  color: #FFD700;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 1.5s ease forwards 0.5s;
+  color: #fff;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
   margin-bottom: 1.2rem;
-  color: #fff;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 1.5s ease forwards 1.5s;
+  color: #fff;
 }
 
 .btn {
   font-size: 1rem;
   padding: 0.6rem 1.2rem;
-  background-color: #FFD700;
+  background-color: #FFD700; /* Dark Yellow */
   color: #1a1a2e;
   border: none;
   border-radius: 5px;
@@ -152,9 +142,7 @@ nav.mobile-nav a[aria-current="page"] {
   transform: scale(1.05);
 }
 
-/* ===========================
-   Sections
-   =========================== */
+/* Sections */
 .courses,
 .skills,
 .about {
@@ -163,11 +151,13 @@ nav.mobile-nav a[aria-current="page"] {
   margin: 0 auto;
 }
 
-h2 {
+.courses h2,
+.skills h2,
+.about h2 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
   text-align: center;
-  color: #FFD700;
+  color: #FFD700; /* Dark Yellow headings */
 }
 
 /* Courses Controls */
@@ -193,9 +183,6 @@ h2 {
 }
 
 .course-cards .card {
-  background-color: #1a1a2e;
-  padding: 0.8rem;
-  border-radius: 6px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -219,8 +206,8 @@ h2 {
   gap: 1.5rem;
   align-items: center;
   justify-content: center;
-  text-align: center;
   margin-top: 2rem;
+  text-align: center;
 }
 
 .about-image img {
@@ -254,59 +241,26 @@ h2 {
   color: #fff;
 }
 
-/* ===========================
-   Footer
-   =========================== */
+/* Footer */
 footer {
-  background: #1a1a2e;
-  color: #fff;
   text-align: center;
-  padding: 2rem 1rem;
-  border-top: 2px solid #2e2e4d;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.footer-section h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-  font-weight: 600;
-  color: #00adb5;
-}
-
-.footer-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-}
-
-.footer-icons a {
-  font-size: 1.5rem;
+  padding: 1.5rem;
+  font-size: 0.95rem;
+  background-color: #00008B; /* Dark Blue */
   color: #fff;
-  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.footer-icons a:hover {
-  color: #00adb5;
-  transform: scale(1.2);
+.social a {
+  color: #FFD700; /* Dark Yellow links */
+  text-decoration: none;
+  margin: 0 0.5rem;
 }
 
-footer p {
-  font-size: 0.9rem;
-  margin: 0.2rem 0;
-  color: #cccccc;
+.social a:hover {
+  text-decoration: underline;
 }
 
-/* ===========================
-   Animations
-   =========================== */
+/* Animations */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -321,8 +275,65 @@ footer p {
   0% { transform: translateY(0); }
   100% { transform: translateY(-10px); }
 }
+/* ===========================
+   Hero Section - Full Screen
+   =========================== */
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+  background-color: #000; /* fallback */
+}
 
-/* Responsive Hero Adjustments */
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* fill the screen */
+  object-position: center top; /* focus on face/top */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  text-align: center;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  background-color: rgba(0, 0, 0, 0.4); /* subtle overlay for readability */
+  border-radius: 8px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #FFD700; /* Dark Yellow */
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  background-color: #FFD700;
+  color: #1a1a2e;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
 @media (max-width: 480px) {
   .hero-title {
     font-size: 1.8rem;
@@ -331,3 +342,140 @@ footer p {
     font-size: 1rem;
   }
 }
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+}
+/* ===== Footer Styling ===== */
+footer {
+  background: #1a1a2e;
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  border-top: 2px solid #2e2e4d;
+}
+
+/* Row layout for footer sections */
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Section headings */
+.footer-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  color: #00adb5;   /* accent color */
+}
+
+/* Icons inside each section */
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.footer-icons a {
+  font-size: 1.5rem;
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-icons a:hover {
+  color: #00adb5;
+  transform: scale(1.2);
+}
+
+/* Copyright */
+footer p {
+  font-size: 0.9rem;
+  margin: 0.2rem 0;
+  color: #cccccc;
+}
+
+/* Responsive stacking on mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+  footer {
+    background-color: #1a1a2e;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: #fff;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-icons-container {
+    display: flex;
+    gap: 2rem; /* space between icons */
+  }
+
+  .footer-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: #fff;
+  }
+
+  .footer-icon .footer-tooltip {
+    position: absolute;
+    bottom: 120%; /* above icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    color: #fff;
+  }
+
+  /* Show tooltip on hover or focus */
+  .footer-icon:hover .footer-tooltip,
+  .footer-icon:focus .footer-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+    pointer-events: auto;
+  }
+
+  .footer-tooltip a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .footer-copy {
+    margin-top: 1rem;
+    color: #ccc;
+    font-size: 0.9rem;
+  }
