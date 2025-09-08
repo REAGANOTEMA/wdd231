@@ -77,8 +77,10 @@ nav .nav-links a {
   transition: var(--transition);
 }
 
-nav .nav-links a:hover {
+nav .nav-links a:hover,
+nav .nav-links a:focus {
   color: var(--primary);
+  outline: none;
 }
 
 /* Hamburger */
@@ -161,8 +163,10 @@ nav .nav-links a:hover {
   transition: var(--transition);
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
   background: #00325a;
+  outline: none;
 }
 
 .btn.secondary {
@@ -229,7 +233,8 @@ nav .nav-links a:hover {
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.member-card:hover {
+.member-card:hover,
+.member-card:focus-within {
   transform: translateY(-5px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
@@ -256,6 +261,7 @@ nav .nav-links a:hover {
   font-weight: 600;
 }
 
+/* No results */
 .no-results {
   display: none;
   margin-top: 1rem;
@@ -263,7 +269,7 @@ nav .nav-links a:hover {
   color: var(--muted);
 }
 
-/* About & Contact */
+/* Sections */
 section {
   margin-bottom: 2rem;
 }
