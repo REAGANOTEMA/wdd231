@@ -8,26 +8,31 @@
 -->
 
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kampala Regional Chamber  Directory</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Kampala Regional Chamber Directory</title>
   <meta name="description" content="Chamber of Commerce directory for the Kampala region — find local member businesses, membership level, contact info and websites.">
   <meta name="author" content="Reagan Otema">
 
-  <!-- FACEBOOK / Open Graph Meta -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Kampala Regional Chamber Directory">
   <meta property="og:description" content="Find member businesses in the Kampala region. View members in grid or list, filter by membership level.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200&q=80&auto=format&fit=crop">
+  <meta property="og:image" content="images/hero.jpg">
   <meta property="og:url" content="https://your-github-username.github.io/wdd231/chamber/directory.html">
   <meta property="og:type" content="website">
 
-  <!-- FAVICON -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2300477a'/%3E%3Ctext x='50' y='57' font-size='48' font-family='Arial' fill='%23fff' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2300477a'/%3E%3Ctext x='50' y='57' font-size='48' font-family='Arial' fill='%23fff' text-anchor='middle'%3Ek%3C/text%3E%3C/svg%3E">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Normalize CSS -->
-  <link rel="stylesheet" href="styles/normalsize.css">
+  <link rel="stylesheet" href="styles/normalize.css">
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="styles/chamber.css">
@@ -36,12 +41,14 @@
   <header class="container">
     <div class="topbar">
       <div class="brand">
-        <a href="./index.html" aria-label="Kampala Chamber Home">
-          <svg width="44" height="44" viewBox="0 0 48 48" aria-hidden="true"><rect rx="10" width="48" height="48" fill="#00477a"></rect><text x="24" y="31" font-size="20" font-family="Arial" fill="#fff" text-anchor="middle">K</text></svg>
+        <a href="index.html" aria-label="Kampala Chamber Home">
+          <svg width="44" height="44" viewBox="0 0 48 48" aria-hidden="true">
+            <rect rx="10" width="48" height="48" fill="#00477a"></rect>
+            <text x="24" y="31" font-size="20" font-family="Arial" fill="#fff" text-anchor="middle">k</text>
+          </svg>
         </a>
-        <div>
-          <h1>Kampala Regional Chamber</h1>
-          <div style="font-size:12px;color:var(--muted)">Supporting local business Directory</div>
+        <div class="brand-text">
+          <span class="tagline">Supporting local business — Directory</span>
         </div>
       </div>
 
@@ -60,8 +67,7 @@
       </button>
     </div>
 
-    <!-- mobile menu (hidden by default) -->
-    <div id="mobileMenu" style="display:none;margin-top:12px">
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
       <div class="mobile-links">
         <a href="#members">Directory</a>
         <a href="#about">About</a>
@@ -71,16 +77,18 @@
   </header>
 
   <main class="container" id="mainContent">
+    <h1>Kampala Regional Chamber Directory</h1>
+
     <section class="hero" aria-labelledby="hero-heading">
       <div class="hero-grid">
         <div>
           <h2 id="hero-heading">Find trusted local businesses in the Kampala region</h2>
-          <p>Explore member businesses, see membership levels, and connect directly,tailored for residents and visitors. Search, filter, and switch between grid and list views for easy browsing.</p>
+          <p>Explore member businesses, see membership levels, and connect directly. Search, filter, and switch between grid and list views for easy browsing.</p>
           <div class="hero-cta">
-            <button class="btn" onclick="document.getElementById('members').scrollIntoView({behavior:'smooth'})">View Directory</button>
+            <button class="btn" id="viewDirectoryBtn">View Directory</button>
             <a class="btn secondary" href="#about">About the Chamber</a>
           </div>
-          <div class="hero-credit">Website maintained by <strong>Reagan Otema</strong>BYU‑Idaho Online.</div>
+          <div class="hero-credit">Website maintained by <strong>Reagan Otema</strong> — BYU-Idaho Online</div>
         </div>
       </div>
     </section>
@@ -100,7 +108,7 @@
             <option value="3">Gold</option>
           </select>
         </div>
-        <div class="toggles">
+        <div class="view-toggle">
           <button class="view-btn" id="gridBtn" aria-pressed="true" title="Grid view">Grid</button>
           <button class="view-btn" id="listBtn" aria-pressed="false" title="List view">List</button>
         </div>
@@ -114,14 +122,14 @@
 
     <section id="about">
       <h2>About this project</h2>
-      <p>This directory page is the W02 Chamber Directory assignment for the WDD 231 class. It demonstrates responsive layout, data-driven rendering from a JSON data source, toggling between grid and list views, dynamic last-modified and copyright rendering, and accessible navigation.</p>
+      <p>This directory page is the W02 Chamber Directory assignment for the WDD 231 class. It demonstrates responsive layout, data-driven rendering from a JSON data source, toggling between grid and list views, and accessible navigation.</p>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
       <p>Site owner: <strong>Reagan Otema</strong></p>
       <ul>
-        <li>School: BYU‑Idaho Online (Pathway)</li>
+        <li>School: BYU-Idaho Online (Pathway)</li>
         <li>Email: <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a></li>
         <li>Phone: <a href="tel:+256772514889">+256 772 514 889</a></li>
         <li>Location: Kampala, Uganda</li>
@@ -136,7 +144,7 @@
     </div>
   </footer>
 
-  <!-- Main JavaScript -->
+  <!-- JavaScript -->
   <script src="scripts/chamber.js" defer></script>
 </body>
 </html>
