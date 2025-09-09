@@ -233,3 +233,52 @@ section h2 { color: var(--primary); margin-bottom: 0.5rem; }
   .hero { padding: 3rem 1rem 2rem; }
   .ribbon::before, .ribbon::after { display: none; }
 }
+/* Footer Contacts Styling */
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.contact-list li i {
+  width: 20px;
+  color: var(--light); /* white icons */
+  transition: transform var(--transition), color var(--transition);
+  flex-shrink: 0;
+}
+
+.contact-list li:hover,
+.contact-list li:focus-within {
+  transform: scale(var(--hover-scale));
+}
+
+.contact-list li:hover i,
+.contact-list li:focus-within i {
+  color: var(--accent); /* highlight icon on hover/focus */
+}
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.contact-list li i {
+  width: 20px;
+  color: var(--light);
+  transition: transform var(--transition), color var(--transition);
+  flex-shrink: 0;
+}
+
+.contact-list li:hover,
+.contact-list li:focus-within {
+  transform: scale(var(--hover-scale));
+}
+
+.contact-list li:hover i,
+.contact-list li:focus-within i {
+  color: var(--accent);
+}
