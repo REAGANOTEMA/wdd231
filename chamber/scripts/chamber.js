@@ -1,157 +1,102 @@
-// File: app.js
-// Location: /wdd231/chamber/scripts/app.js
-// Author: Reagan Otema
+// Final Chamber.js
 
-// DOM elements
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-const gridBtn = document.getElementById('gridBtn');
-const listBtn = document.getElementById('listBtn');
-const membersContainer = document.getElementById('membersContainer');
-const noResults = document.getElementById('noResults');
-const searchInput = document.getElementById('q');
-const filterLevel = document.getElementById('filterLevel');
-const copyrightYear = document.getElementById('copyrightYear');
-const lastMod = document.getElementById('lastMod');
-const viewDirectoryBtn = document.querySelector('.hero-cta .btn');
+document.addEventListener('DOMContentLoaded', () => {
+  // Mobile Hamburger Menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
 
-// Data
-let membersData = [];
-let currentView = 'grid';
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+    hamburger.setAttribute('aria-expanded', !expanded);
+    mobileMenu.style.display = expanded ? 'none' : 'block';
+    mobileMenu.setAttribute('aria-hidden', expanded);
+  });
 
-// Toggle mobile menu
-hamburger.addEventListener('click', () => {
-  const isOpen = mobileMenu.style.display === 'block';
-  mobileMenu.style.display = isOpen ? 'none' : 'block';
-  hamburger.setAttribute('aria-expanded', String(!isOpen));
-});
+  // View toggle (Grid / List)
+  const gridBtn = document.getElementById('gridBtn');
+  const listBtn = document.getElementById('listBtn');
+  const membersContainer = document.getElementById('membersContainer');
 
-// Switch view buttons
-gridBtn.addEventListener('click', () => {
-  currentView = 'grid';
-  gridBtn.setAttribute('aria-pressed', 'true');
-  listBtn.setAttribute('aria-pressed', 'false');
-  renderMembers();
-});
+  gridBtn.addEventListener('click', () => {
+    gridBtn.setAttribute('aria-pressed', 'true');
+    listBtn.setAttribute('aria-pressed', 'false');
+    membersContainer.style.display = 'grid';
+    membersContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(250px,1fr))';
+  });
 
-listBtn.addEventListener('click', () => {
-  currentView = 'list';
-  listBtn.setAttribute('aria-pressed', 'true');
-  gridBtn.setAttribute('aria-pressed', 'false');
-  renderMembers();
-});
+  listBtn.addEventListener('click', () => {
+    gridBtn.setAttribute('aria-pressed', 'false');
+    listBtn.setAttribute('aria-pressed', 'true');
+    membersContainer.style.display = 'block';
+  });
 
-// Hero "View Directory" button
-if(viewDirectoryBtn){
-  viewDirectoryBtn.addEventListener('click', () => {
+  // Filter members
+  const filterSelect = document.getElementById('filterLevel');
+  const searchInput = document.getElementById('q');
+  const noResults = document.getElementById('noResults');
+
+  // Example member data
+  const members = [
+    { name: 'Alpha Ltd', level: '1', image: 'images/alpha.webp', email:'alpha@example.com', phone:'+256700111222', location:'Kampala' },
+    { name: 'Beta Co', level: '2', image: 'images/beta.webp', email:'beta@example.com', phone:'+256700333444', location:'Kampala' },
+    { name: 'Gamma Inc', level: '3', image: 'images/gama.webp', email:'gamma@example.com', phone:'+256700555666', location:'Kampala' },
+    { name: 'Delta LLC', level: '1', image: 'images/delta.webp', email:'delta@example.com', phone:'+256700777888', location:'Kampala' }
+  ];
+
+  // Render members
+  function renderMembers(list) {
+    membersContainer.innerHTML = '';
+    if(list.length === 0) {
+      noResults.style.display = 'block';
+      return;
+    }
+    noResults.style.display = 'none';
+    list.forEach(member => {
+      const card = document.createElement('div');
+      card.className = 'member-card';
+      card.innerHTML = `
+        <img src="${member.image}" alt="${member.name}">
+        <h3>${member.name}</h3>
+        <p><strong>Level:</strong> ${member.level}</p>
+        <p><strong>Email:</strong> <a href="mailto:${member.email}">${member.email}</a></p>
+        <p><strong>Phone:</strong> <a href="tel:${member.phone}">${member.phone}</a></p>
+        <p><strong>Location:</strong> ${member.location}</p>
+      `;
+      membersContainer.appendChild(card);
+      // Animate cards fade-in
+      card.style.opacity = 0;
+      setTimeout(() => { card.style.opacity = 1; }, 100);
+    });
+  }
+
+  // Initial render
+  renderMembers(members);
+
+  // Filter and search
+  function filterMembers() {
+    const query = searchInput.value.toLowerCase();
+    const level = filterSelect.value;
+    const filtered = members.filter(member => {
+      const matchLevel = level === 'all' || member.level === level;
+      const matchSearch = member.name.toLowerCase().includes(query) ||
+                          member.email.toLowerCase().includes(query) ||
+                          member.phone.includes(query) ||
+                          member.location.toLowerCase().includes(query);
+      return matchLevel && matchSearch;
+    });
+    renderMembers(filtered);
+  }
+
+  filterSelect.addEventListener('change', filterMembers);
+  searchInput.addEventListener('input', filterMembers);
+
+  // Hero CTA Scroll
+  const viewBtn = document.getElementById('viewDirectoryBtn');
+  viewBtn.addEventListener('click', () => {
     document.getElementById('members').scrollIntoView({ behavior: 'smooth' });
   });
-}
 
-// Search and filter listeners
-searchInput.addEventListener('input', renderMembers);
-filterLevel.addEventListener('change', renderMembers);
-
-// Fetch members from JSON
-async function fetchMembers() {
-  try {
-    const response = await fetch('data/members.json');
-    if (!response.ok) throw new Error('Failed to load JSON');
-    membersData = await response.json();
-  } catch (error) {
-    console.error('Error fetching members:', error);
-    // fallback data
-    membersData = [
-      {
-        name: "Kampala Tech Hub",
-        address: "Plot 12, Kampala Rd",
-        phone: "+256 700 123456",
-        website: "https://kampalatech.ug",
-        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=300&h=300&fit=crop",
-        level: 3
-      },
-      {
-        name: "Pearl Coffee Co.",
-        address: "45 Jinja Rd, Kampala",
-        phone: "+256 701 654321",
-        website: "https://pearlcoffee.ug",
-        image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&h=300&fit=crop",
-        level: 2
-      },
-      {
-        name: "Nile Safari Tours",
-        address: "Ggaba Rd, Kampala",
-        phone: "+256 775 987654",
-        website: "https://nilesafaritours.ug",
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300&h=300&fit=crop",
-        level: 1
-      }
-    ];
-  }
-  renderMembers();
-}
-
-// Render members
-function renderMembers() {
-  const query = searchInput.value.toLowerCase();
-  const levelFilter = filterLevel.value;
-
-  const filtered = membersData.filter(m => {
-    const matchesSearch =
-      m.name.toLowerCase().includes(query) ||
-      m.address.toLowerCase().includes(query) ||
-      m.phone.includes(query);
-
-    const matchesLevel =
-      levelFilter === 'all' || String(m.level) === levelFilter;
-
-    return matchesSearch && matchesLevel;
-  });
-
-  membersContainer.innerHTML = '';
-
-  if (filtered.length === 0) {
-    noResults.style.display = 'block';
-    return;
-  } else {
-    noResults.style.display = 'none';
-  }
-
-  if (currentView === 'grid') {
-    membersContainer.classList.remove('list');
-    membersContainer.classList.add('members');
-  } else {
-    membersContainer.classList.add('list');
-  }
-
-  filtered.forEach(m => {
-    const card = document.createElement('div');
-    card.className = 'member-card';
-    card.setAttribute('role', 'listitem');
-    card.innerHTML = `
-      <img src="${m.image}" alt="${m.name} logo">
-      <h3>${m.name}</h3>
-      <p>${m.address}</p>
-      <p>${m.phone}</p>
-      <a href="${m.website}" target="_blank" rel="noopener">Visit Website</a>
-      <div class="member-level">Level: ${membershipLabel(m.level)}</div>
-    `;
-    membersContainer.appendChild(card);
-  });
-}
-
-function membershipLabel(level) {
-  switch(level) {
-    case 3: return 'Gold';
-    case 2: return 'Silver';
-    case 1: return 'Member';
-    default: return 'Member';
-  }
-}
-
-// Footer info
-copyrightYear.textContent = new Date().getFullYear();
-lastMod.textContent = document.lastModified;
-
-// Init
-fetchMembers();
+  // Footer last modified and copyright
+  document.getElementById('lastMod').textContent = new Date(document.lastModified).toLocaleDateString();
+  document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+});
