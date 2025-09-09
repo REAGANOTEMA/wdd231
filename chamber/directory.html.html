@@ -10,7 +10,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Kampala Regional Chamber Directory">
   <meta property="og:description" content="Find member businesses in the Kampala region. View members in grid or list, filter by membership level.">
-  <meta property="og:image" content="images/hero.jpg">
+  <meta property="og:image" content="images/hero.jpg"> <!-- Local image path -->
   <meta property="og:url" content="https://reaganotema.github.io/wdd231/chamber/directory.html">
   <meta property="og:type" content="website">
 
@@ -34,40 +34,43 @@
 <body>
   <!-- Header -->
   <header class="container">
-    <div class="topbar">
-      <div class="brand">
-        <a href="index.html" aria-label="Kampala Chamber Home">
-          <svg width="44" height="44" viewBox="0 0 48 48" aria-hidden="true">
-            <rect rx="10" width="48" height="48" fill="#00477a"></rect>
-            <text x="24" y="31" font-size="20" font-family="Arial" fill="#fff" text-anchor="middle">k</text>
-          </svg>
-        </a>
-        <div class="brand-text">
-          <span class="tagline">Supporting local business — Directory</span>
-        </div>
-      </div>
-
-      <nav aria-label="Main Navigation">
-        <div class="nav-links">
-          <a href="#members">Directory</a>
-          <a href="#about">About</a>
-        </div>
-      </nav>
-
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-    </div>
-
-    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-      <div class="mobile-links">
-        <a href="#members">Directory</a>
-        <a href="#about">About</a>
+  <div class="topbar">
+    <!-- Brand / Logo -->
+    <div class="brand">
+      <a href="index.html" aria-label="Kampala Chamber Home">
+        <svg width="50" height="50" viewBox="0 0 48 48" aria-hidden="true">
+          <rect rx="10" width="48" height="48" fill="#00477a"></rect>
+          <text x="24" y="31" font-size="20" font-family="Arial" fill="#fff" text-anchor="middle">k</text>
+        </svg>
+      </a>
+      <div class="brand-text">
+        <span class="tagline">Supporting local business — Directory</span>
       </div>
     </div>
-  </header>
+
+    <!-- Navigation -->
+    <nav aria-label="Main Navigation" class="nav-links">
+      <a href="#members">Directory</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <!-- Hamburger -->
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-links">
+      <a href="#members">Directory</a>
+      <a href="#about">About</a>
+    </div>
+  </div>
+</header>
+
 
   <!-- Main Content -->
   <main class="container" id="mainContent">
