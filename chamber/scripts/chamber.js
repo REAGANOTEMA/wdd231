@@ -100,3 +100,37 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('lastMod').textContent = new Date(document.lastModified).toLocaleDateString();
   document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 });
+// ------------------------
+// Member Spotlights (Gold/Silver only, random)
+// ------------------------
+const spotlightContainer = document.getElementById('spotlight-container');
+if(spotlightContainer){
+  const goldSilverMembers = members.filter(m => m.level === '2' || m.level === '3');
+
+  function getRandomSpotlights(list, count = 3) {
+    const shuffled = [...list].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  }
+
+  function renderSpotlights() {
+    spotlightContainer.innerHTML = '';
+    const spotlights = getRandomSpotlights(goldSilverMembers, 3);
+    spotlights.forEach(member => {
+      const card = document.createElement('div');
+      card.className = 'member-card';
+      card.innerHTML = `
+        <img src="${member.image}" alt="${member.name}">
+        <h3>${member.name}</h3>
+        <p><strong>Level:</strong> ${member.level}</p>
+        <p><strong>Email:</strong> <a href="mailto:${member.email}">${member.email}</a></p>
+        <p><strong>Phone:</strong> <a href="tel:${member.phone}">${member.phone}</a></p>
+        <p><strong>Location:</strong> ${member.location}</p>
+      `;
+      spotlightContainer.appendChild(card);
+      card.style.opacity = 0;
+      setTimeout(() => { card.style.opacity = 1; }, 100);
+    });
+  }
+
+  renderSpotlights();
+}

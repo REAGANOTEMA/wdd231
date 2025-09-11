@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kampala Regional Chamber Home</title>
+  <meta name="description" content="Welcome to the Kampala Regional Chamber of Commerce. Join, explore members, and stay updated on local business events.">
+  <meta name="author" content="Reagan Otema">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/chamber.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="container">
+    <div class="topbar">
+      <div class="brand">
+        <a href="index.html" aria-label="Kampala Chamber Home">
+          <svg width="50" height="50" viewBox="0 0 48 48" aria-hidden="true">
+            <rect rx="10" width="48" height="48" fill="#00477a"></rect>
+            <text x="24" y="31" font-size="20" font-family="Arial" fill="#fff" text-anchor="middle">k</text>
+          </svg>
+        </a>
+        <div class="brand-text">
+          <span class="tagline">Supporting local business</span>
+        </div>
+      </div>
+
+      <nav aria-label="Main Navigation" class="nav-links">
+        <a href="directory.html">Directory</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <div class="mobile-links">
+        <a href="index.html">Home</a>
+        <a href="directory.html">Directory</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Welcome to the Kampala Regional Chamber</h1>
+      <p>Connecting businesses, supporting growth, and highlighting local members.</p>
+      <div class="hero-cta">
+        <a class="btn" href="directory.html">Explore Directory</a>
+        <a class="btn secondary" href="#events">Upcoming Events</a>
+      </div>
+    </section>
+
+    <!-- Current Events -->
+    <section id="events">
+      <h2>Current Events</h2>
+      <ul>
+        <li>Networking Breakfast — Oct 20</li>
+        <li>Business Workshop — Oct 25</li>
+      </ul>
+    </section>
+
+    <!-- Weather Section -->
+    <section id="weather">
+      <h2>Local Weather</h2>
+      <div id="weather-display">Loading weather...</div>
+    </section>
+
+    <!-- Member Spotlights -->
+    <section id="spotlights">
+      <h2>Member Spotlights</h2>
+      <div id="spotlight-container" class="members"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="container">
+    <div class="footer-grid">
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <ul class="contact-list">
+          <li><i class="fas fa-user"></i> <strong>Owner:</strong> Reagan Otema</li>
+          <li><i class="fas fa-school"></i> <strong>School:</strong> BYU-Idaho Online</li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a></li>
+          <li><i class="fas fa-phone"></i> <a href="tel:+256772514889">+256 772 514 889</a></li>
+          <li><i class="fas fa-location-dot"></i> Kampala, Uganda</li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <div>© <span id="copyrightYear"></span> Kampala Regional Chamber</div>
+        <div>Developed by <strong>Reagan Otema</strong> — WDD 231</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/chamber.js" defer></script>
+  <script src="scripts/weather.js" defer></script>
+  <script src="scripts/spotlight.js" defer></script>
+</body>
+</html>
