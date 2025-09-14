@@ -1,131 +1,123 @@
-<!doctype html>
-<html lang="en-US">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Kampala Regional Chamber Directory</title>
-  <meta name="description" content="Chamber of Commerce directory for the Kampala region — find local member businesses, membership level, contact info and websites.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kampala Regional Chamber</title>
+  <meta name="description" content="Home page of Kampala Regional Chamber — supporting local businesses, member directory, weather, events, and spotlight members.">
   <meta name="author" content="Reagan Otema">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Kampala Regional Chamber Directory">
-  <meta property="og:description" content="Find member businesses in the Kampala region. View members in grid or list, filter by membership level.">
-   <meta property="og:image" content="wdd123-chamber-images/hero.jpg">
-  <meta property="og:url" content="https://reaganotema.github.io/wdd231/chamber/directory.html">
+  <meta property="og:title" content="Kampala Regional Chamber">
+  <meta property="og:description" content="Supporting local businesses in Kampala. View members, weather, events, and company spotlights.">
+  <meta property="og:image" content="images/hero.jpg">
+  <meta property="og:url" content="https://reaganotema.github.io/wdd231/chamber/index.html">
   <meta property="og:type" content="website">
 
-  <!-- Favicon -->
-  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Google Fonts -->
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Normalize CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="styles/normalize.css">
-
-  <!-- Main CSS -->
   <link rel="stylesheet" href="styles/chamber.css">
 </head>
 <body>
   <!-- Header -->
   <header class="container">
-  <div class="topbar">
-    <!-- Brand / Logo -->
-    <div class="brand">
-      <a href="index.html" aria-label="Kampala Chamber Home">
-        <svg width="50" height="50" viewBox="0 0 48 48" aria-hidden="true">
-          <rect rx="10" width="48" height="48" fill="#00477a"></rect>
-          <text x="24" y="31" font-size="20" font-family="Arial" fill="#fff" text-anchor="middle">k</text>
-        </svg>
-      </a>
-      <div class="brand-text">
-        <span class="tagline">Supporting local business — Directory</span>
-      </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav aria-label="Main Navigation" class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="#members">Directory</a>
-      <a href="#about">About</a>
-    </nav>
-
-    <!-- Hamburger -->
-    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-    <div class="mobile-links">
-      <a href="#members">Directory</a>
-      <a href="#about">About</a>
-    </div>
-  </div>
-</header>
-
-
-  <!-- Main Content -->
-  <main class="container" id="mainContent">
-    <h1>Kampala Regional Chamber Directory</h1>
-
-    <!-- Hero Section -->
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-grid">
-        <div>
-          <h2 id="hero-heading">Find trusted local businesses in the Kampala region</h2>
-          <p>Explore member businesses, see membership levels, and connect directly. Search, filter, and switch between grid and list views for easy browsing.</p>
-          <div class="hero-cta">
-            <button class="btn" id="viewDirectoryBtn">View Directory</button>
-            <a class="btn secondary" href="#about">About the Chamber</a>
-          </div>
-          <div class="hero-credit">Website maintained by <strong>Reagan Otema</strong> — BYU-Idaho Online</div>
+    <div class="topbar">
+      <div class="brand">
+        <a href="index.html" aria-label="Kampala Chamber Home">
+          <svg width="50" height="50" viewBox="0 0 48 48" aria-hidden="true">
+            <rect rx="10" width="48" height="48" fill="#00477a"></rect>
+            <text x="24" y="31" font-size="20" font-family="Arial" fill="#fff" text-anchor="middle">k</text>
+          </svg>
+        </a>
+        <div class="brand-text">
+          <span class="tagline">Supporting local business</span>
         </div>
+      </div>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="#members">Directory</a>
+        <a href="#about">About</a>
+        <a href="#spotlight">Spotlight</a>
+        <a href="#weather">Weather</a>
+      </nav>
+
+      <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <a href="#members">Directory</a>
+      <a href="#about">About</a>
+      <a href="#spotlight">Spotlight</a>
+      <a href="#weather">Weather</a>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main id="mainContent" class="container">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div>
+        <h1 id="hero-heading">Welcome to the Kampala Regional Chamber</h1>
+        <p>Discover trusted local businesses, explore our member directory, and see featured companies.</p>
+        <a href="#members" class="btn hero-cta">View Directory</a>
+        <a href="#about" class="btn secondary hero-cta">About the Chamber</a>
       </div>
     </section>
 
-    <!-- Controls -->
-    <div class="controls">
-      <div class="search" role="search">
-        <label for="q" class="sr-only">Search members</label>
-        <input id="q" type="search" placeholder="Search businesses, address, phone..." aria-label="Search members">
-      </div>
-      <div class="toggles" role="toolbar" aria-label="View and filter controls">
-        <div>
-          <label for="filterLevel" class="sr-only">Filter membership level</label>
-          <select id="filterLevel" aria-label="Filter membership level">
-            <option value="all">All levels</option>
-            <option value="1">Member</option>
-            <option value="2">Silver</option>
-            <option value="3">Gold</option>
-          </select>
-        </div>
-        <div class="view-toggle">
-          <button class="view-btn" id="gridBtn" aria-pressed="true" title="Grid view"><i class="fas fa-th"></i></button>
-          <button class="view-btn" id="listBtn" aria-pressed="false" title="List view"><i class="fas fa-list"></i></button>
-        </div>
-      </div>
-    </div>
+    <!-- Current Events -->
+    <section id="events" aria-labelledby="events-heading">
+      <h2 id="events-heading">Current Events</h2>
+      <ul>
+        <li>Chamber Networking Breakfast — 20 Sept 2025</li>
+        <li>Small Business Workshop — 25 Sept 2025</li>
+      </ul>
+    </section>
 
-    <!-- Members Section -->
-    <section id="members" aria-label="Chamber members">
+    <!-- Weather -->
+    <section id="weather" aria-labelledby="weather-heading">
+      <h2 id="weather-heading">Local Weather</h2>
+      <div id="weather-display">Loading weather...</div>
+    </section>
+
+    <!-- Member Directory -->
+    <section id="members" aria-labelledby="members-heading">
+      <h2 id="members-heading">Member Directory</h2>
+      <div class="controls">
+        <input type="search" id="q" placeholder="Search members..." aria-label="Search members">
+        <select id="filterLevel" aria-label="Filter membership level">
+          <option value="all">All Levels</option>
+          <option value="1">Member</option>
+          <option value="2">Silver</option>
+          <option value="3">Gold</option>
+        </select>
+        <button id="gridBtn" aria-pressed="true" class="view-btn" title="Grid view"><i class="fas fa-th"></i></button>
+        <button id="listBtn" aria-pressed="false" class="view-btn" title="List view"><i class="fas fa-list"></i></button>
+      </div>
       <div id="membersContainer" class="members" role="list"></div>
       <div id="noResults" class="no-results">No matching members found.</div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-      <h2>About this project</h2>
-      <p>This directory page is the W02 Chamber Directory assignment for the WDD 231 class. It demonstrates responsive layout, data-driven rendering from a JSON data source, toggling between grid and list views, and accessible navigation.</p>
+    <!-- Spotlight Section -->
+    <section id="spotlight" aria-labelledby="spotlight-heading">
+      <h2 id="spotlight-heading">Company Spotlight</h2>
+      <div id="spotlight-container" class="members" role="list"></div>
+    </section>
+
+    <!-- About -->
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About the Chamber</h2>
+      <p>The Kampala Regional Chamber supports local business growth and connects professionals across Uganda.</p>
     </section>
   </main>
 
@@ -134,39 +126,22 @@
     <div class="footer-grid">
       <div class="footer-contact">
         <h3>Contact Us</h3>
-      <ul class="contact-list">
-  <li>
-    <i class="fas fa-user"></i>
-    <span><strong>Owner:</strong> Reagan Otema</span>
-  </li>
-  <li>
-    <i class="fas fa-school"></i>
-    <span><strong>School:</strong> BYU-Idaho Online (Pathway)</span>
-  </li>
-  <li>
-    <i class="fas fa-envelope"></i>
-    <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a>
-  </li>
-  <li>
-    <i class="fas fa-phone"></i>
-    <a href="tel:+256772514889"><strong>Phone:</strong> +256 772 514 889</a>
-  </li>
-  <li>
-    <i class="fas fa-location-dot"></i>
-    <span><strong>Location:</strong> Kampala, Uganda</span>
-  </li>
-</ul>
-
-
+        <ul class="contact-list">
+          <li><i class="fas fa-user"></i> Reagan Otema</li>
+          <li><i class="fas fa-school"></i> BYU-Idaho Online</li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:rotema@byupathway.edu">rotema@byupathway.edu</a></li>
+          <li><i class="fas fa-phone"></i> <a href="tel:+256772514889">+256 772 514 889</a></li>
+          <li><i class="fas fa-location-dot"></i> Kampala, Uganda</li>
+        </ul>
       </div>
       <div class="footer-info">
         <div>© <span id="copyrightYear"></span> Kampala Regional Chamber</div>
-        <div>Developed by <strong>Reagan Otema</strong> — WDD 231 — Last modified: <span id="lastMod">loading...</span></div>
+        <div>Last modified: <span id="lastMod"></span></div>
       </div>
     </div>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- Scripts -->
   <script src="scripts/chamber.js" defer></script>
 </body>
 </html>
