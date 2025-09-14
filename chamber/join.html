@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kampala Regional Chamber — Join</title>
+  <meta name="description" content="Apply to join the Kampala Regional Chamber of Commerce. Fill out the membership form and explore membership benefits.">
+  <meta name="author" content="Reagan Otema">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/chamber.css">
+  <link rel="stylesheet" href="styles/join.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="container">
+    <div class="topbar">
+      <div class="brand">
+        <a href="index.html" aria-label="Kampala Chamber Home">
+          <svg width="50" height="50" viewBox="0 0 48 48" aria-hidden="true">
+            <rect rx="10" width="48" height="48" fill="#00477a"></rect>
+            <text x="24" y="31" font-size="20" font-family="Arial" fill="#fff" text-anchor="middle">k</text>
+          </svg>
+        </a>
+        <div class="brand-text"><span class="tagline">Supporting local business</span></div>
+      </div>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="#membershipForm">Join</a>
+        <a href="#members">Directory</a>
+        <a href="#spotlight">Spotlight</a>
+      </nav>
+
+      <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <a href="#membershipForm">Join</a>
+      <a href="#members">Directory</a>
+      <a href="#spotlight">Spotlight</a>
+    </div>
+  </header>
+
+  <main class="container" id="mainContent">
+    <h1>Join the Kampala Regional Chamber of Commerce</h1>
+
+    <!-- Membership Form Section -->
+    <section id="membershipForm" class="membership-section">
+      <form action="thankyou.html" method="get" class="membership-form">
+        <label>First Name: <input type="text" name="firstName" title="Enter your first name" autocomplete="given-name" required></label>
+        <label>Last Name: <input type="text" name="lastName" title="Enter your last name" autocomplete="family-name" required></label>
+        <label>Organizational Title: <input type="text" name="orgTitle" title="Enter your organizational title" autocomplete="organization-title" pattern="[A-Za-z\s\-]{7,}" placeholder="At least 7 letters/spaces" required></label>
+        <label>Email: <input type="email" name="email" title="Enter your email" autocomplete="email" placeholder="example@email.com" required></label>
+        <label>Mobile Phone: <input type="tel" name="phone" title="Enter your mobile number" autocomplete="tel" required></label>
+        <label>Business/Organization Name: <input type="text" name="businessName" title="Enter business/organization name" autocomplete="organization" required></label>
+        <label>Membership Level: 
+          <select name="membershipLevel" title="Select membership level" required>
+            <option value="np">NP Membership</option>
+            <option value="bronze">Bronze</option>
+            <option value="silver">Silver</option>
+            <option value="gold">Gold</option>
+          </select>
+        </label>
+        <label>Business Description: <textarea name="description" title="Describe your business or organization"></textarea></label>
+        <input type="hidden" name="timestamp" id="timestamp">
+        <input type="submit" value="Join Now">
+      </form>
+
+      <!-- Membership Cards -->
+      <div class="membership-cards">
+        <div class="card" data-modal="modalNP">NP Membership <a href="#" class="info-link">Benefits</a></div>
+        <div class="card" data-modal="modalBronze">Bronze Membership <a href="#" class="info-link">Benefits</a></div>
+        <div class="card" data-modal="modalSilver">Silver Membership <a href="#" class="info-link">Benefits</a></div>
+        <div class="card" data-modal="modalGold">Gold Membership <a href="#" class="info-link">Benefits</a></div>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <dialog id="modalNP"><p>NP Membership: No fee, access to networking events.</p><button class="close">Close</button></dialog>
+    <dialog id="modalBronze"><p>Bronze: Includes advertising, event discounts.</p><button class="close">Close</button></dialog>
+    <dialog id="modalSilver"><p>Silver: All Bronze benefits + spotlight feature.</p><button class="close">Close</button></dialog>
+    <dialog id="modalGold"><p>Gold: All Silver benefits + VIP events & promotions.</p><button class="close">Close</button></dialog>
+  </main>
+
+  <!-- Footer -->
+  <footer class="container">
+    <div class="footer-grid">
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><i class="fas fa-user"></i> Reagan Otema</li>
+          <li><i class="fas fa-school"></i> BYU-Idaho Online</li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:reaganotema2022@gmail.com">Email Reagan Otema</a></li>
+          <li><i class="fas fa-phone"></i> <a href="tel:+256772514889">+256 772 514 889</a></li>
+          <li><i class="fas fa-location-dot"></i> Kampala, Uganda</li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <div>© <span id="copyrightYear"></span> Kampala Regional Chamber</div>
+        <div>Last modified: <span id="lastMod"></span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/chamber.js" defer></script>
+  <script src="scripts/join.js" defer></script>
+</body>
+</html>
