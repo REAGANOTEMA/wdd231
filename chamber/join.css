@@ -1,3 +1,4 @@
+/* Membership Section */
 .membership-section {
   display: flex;
   flex-direction: column;
@@ -5,10 +6,12 @@
   margin: 2rem 0;
 }
 
+/* Form Styles */
 .membership-form label {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 .membership-form input,
@@ -17,6 +20,8 @@
   padding: 0.5rem;
   border-radius: 8px;
   border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: inherit;
 }
 
 .membership-form input[type="submit"] {
@@ -27,13 +32,17 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.membership-form input[type="submit"]:hover {
+.membership-form input[type="submit"]:hover,
+.membership-form input[type="submit"]:focus {
   transform: scale(1.05);
+  background: #005f8c;
+  outline: none;
 }
 
+/* Membership Cards */
 .membership-cards {
   display: flex;
   flex-wrap: wrap;
@@ -51,6 +60,13 @@
   cursor: pointer;
   animation: fadeInUp 1s ease forwards;
   opacity: 0;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-5px);
+  background: #005f8c;
 }
 
 .card a {
@@ -60,17 +76,20 @@
   text-decoration: underline;
 }
 
+/* Card Fade-In Animation */
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(20px);}
   100% { opacity: 1; transform: translateY(0);}
 }
 
+/* Dialog / Modals */
 dialog {
   border: none;
   border-radius: 12px;
   padding: 1rem 1.5rem;
   max-width: 400px;
   width: 90%;
+  font-family: inherit;
 }
 
 dialog button.close {
@@ -81,9 +100,16 @@ dialog button.close {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* Responsive */
+dialog button.close:hover,
+dialog button.close:focus {
+  background: #005f8c;
+  outline: none;
+}
+
+/* Responsive Layout */
 @media (min-width: 768px) {
   .membership-section {
     flex-direction: row;
