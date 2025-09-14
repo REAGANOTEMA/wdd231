@@ -67,6 +67,7 @@
 
     <!-- Membership Form Section -->
     <section id="membership-form" class="membership-section">
+      <h2>Membership Application Form</h2>
       <form action="thankyou.html" method="get" class="membership-form">
         <label>First Name: <input type="text" name="firstName" title="Enter your first name" autocomplete="given-name" required></label>
         <label>Last Name: <input type="text" name="lastName" title="Enter your last name" autocomplete="family-name" required></label>
@@ -76,6 +77,7 @@
         <label>Business/Organization Name: <input type="text" name="businessName" title="Enter business/organization name" autocomplete="organization" required></label>
         <label>Membership Level: 
           <select name="membershipLevel" title="Select membership level" required>
+            <option value="" disabled selected>Select membership level</option>
             <option value="np">NP Membership</option>
             <option value="bronze">Bronze</option>
             <option value="silver">Silver</option>
