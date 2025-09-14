@@ -7,12 +7,11 @@
   <meta name="description" content="Apply to join the Kampala Regional Chamber of Commerce. Fill out the membership form and explore membership benefits.">
   <meta name="author" content="Reagan Otema">
 
-  <!-- Open Graph / Social Media -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Kampala Regional Chamber — Join">
   <meta property="og:description" content="Apply to join the Kampala Regional Chamber of Commerce. Explore membership benefits and submit your application today.">
   <meta property="og:image" content="images/hero.jpg">
   <meta property="og:url" content="https://reaganotema.github.io/wdd231/chamber/join.html">
-  <meta property="og:type" content="website">
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +43,7 @@
 
       <nav class="nav-links" aria-label="Main Navigation">
         <a href="index.html">Home</a>
-        <a href="#membershipform">Join</a>
+        <a href="#membership-form">Join</a>
         <a href="#members">Directory</a>
         <a href="#spotlight">Spotlight</a>
       </nav>
@@ -57,7 +56,7 @@
     </div>
 
     <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-      <a href="#membershipform">Join</a>
+      <a href="#membership-form">Join</a>
       <a href="#members">Directory</a>
       <a href="#spotlight">Spotlight</a>
     </div>
@@ -67,7 +66,7 @@
     <h1>Join the Kampala Regional Chamber of Commerce</h1>
 
     <!-- Membership Form Section -->
-    <section id="membershipform" class="membership-section">
+    <section id="membership-form" class="membership-section">
       <form action="thankyou.html" method="get" class="membership-form">
         <label>First Name: <input type="text" name="firstName" title="Enter your first name" autocomplete="given-name" required></label>
         <label>Last Name: <input type="text" name="lastName" title="Enter your last name" autocomplete="family-name" required></label>
@@ -90,18 +89,18 @@
 
       <!-- Membership Cards -->
       <div class="membership-cards">
-        <div class="card" data-modal="modalNP">NP Membership <a href="#" class="info-link">Benefits</a></div>
-        <div class="card" data-modal="modalBronze">Bronze Membership <a href="#" class="info-link">Benefits</a></div>
-        <div class="card" data-modal="modalSilver">Silver Membership <a href="#" class="info-link">Benefits</a></div>
-        <div class="card" data-modal="modalGold">Gold Membership <a href="#" class="info-link">Benefits</a></div>
+        <div class="card" data-modal="modal-np">NP Membership <a href="#" class="info-link">Benefits</a></div>
+        <div class="card" data-modal="modal-bronze">Bronze Membership <a href="#" class="info-link">Benefits</a></div>
+        <div class="card" data-modal="modal-silver">Silver Membership <a href="#" class="info-link">Benefits</a></div>
+        <div class="card" data-modal="modal-gold">Gold Membership <a href="#" class="info-link">Benefits</a></div>
       </div>
     </section>
 
     <!-- Modals -->
-    <dialog id="modalNP"><p>NP Membership: No fee, access to networking events.</p><button class="close">Close</button></dialog>
-    <dialog id="modalBronze"><p>Bronze: Includes advertising, event discounts.</p><button class="close">Close</button></dialog>
-    <dialog id="modalSilver"><p>Silver: All Bronze benefits + spotlight feature.</p><button class="close">Close</button></dialog>
-    <dialog id="modalGold"><p>Gold: All Silver benefits + VIP events & promotions.</p><button class="close">Close</button></dialog>
+    <dialog id="modal-np"><p>NP Membership: No fee, access to networking events.</p><button class="close">Close</button></dialog>
+    <dialog id="modal-bronze"><p>Bronze: Includes advertising, event discounts.</p><button class="close">Close</button></dialog>
+    <dialog id="modal-silver"><p>Silver: All Bronze benefits + spotlight feature.</p><button class="close">Close</button></dialog>
+    <dialog id="modal-gold"><p>Gold: All Silver benefits + VIP events & promotions.</p><button class="close">Close</button></dialog>
   </main>
 
   <!-- Footer -->
@@ -112,7 +111,7 @@
         <ul>
           <li><i class="fas fa-user"></i> Reagan Otema</li>
           <li><i class="fas fa-school"></i> BYU-Idaho Online</li>
-          <li><i class="fas fa-envelope"></i> <a href="mailto:reaganotema2022@gmail.com">Email Reagan</a></li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:reaganotema2022@gmail.com">Email Reagan Otema</a></li>
           <li><i class="fas fa-phone"></i> <a href="tel:+256772514889">+256 772 514 889</a></li>
           <li><i class="fas fa-location-dot"></i> Kampala, Uganda</li>
         </ul>
