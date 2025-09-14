@@ -100,13 +100,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // -----------------------------
   // Hero CTA Smooth Scroll
   // -----------------------------
-  const viewBtn = document.querySelector(".hero-cta");
-  if(viewBtn) {
-    viewBtn.addEventListener("click", e => {
+  document.querySelectorAll(".hero-cta").forEach(btn => {
+    btn.addEventListener("click", e => {
       e.preventDefault();
       document.getElementById("members").scrollIntoView({ behavior: "smooth" });
     });
-  }
+  });
 
   // -----------------------------
   // Footer Info
@@ -118,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Spotlight Members (Gold/Silver)
   // -----------------------------
   const spotlightContainer = document.getElementById("spotlight-container");
-
   if (spotlightContainer) {
     const goldSilverMembers = members.filter(m => m.level === "2" || m.level === "3");
 
@@ -155,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // -----------------------------
   const weatherDisplay = document.getElementById("weather-display");
   if (weatherDisplay) {
-    const apiKey = "YOUR_OPENWEATHERMAP_API_KEY"; // <-- Replace with your key
+    const apiKey = "YOUR_OPENWEATHERMAP_API_KEY"; // Replace with your key
     const city = "Kampala,UG";
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&cnt=24&appid=${apiKey}`)
       .then(res => res.json())
