@@ -1,0 +1,34 @@
+/* Small screens: 1 column */
+.discover-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-areas:
+        "card1"
+        "card2"
+        "card3"
+        "card4"
+        "card5"
+        "card6"
+        "card7"
+        "card8";
+}
+
+/* Medium screens: 2 columns */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .discover-grid {
+        grid-template-areas:
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+    }
+}
+
+/* Large screens: 4 columns */
+@media (min-width: 1025px) {
+    .discover-grid {
+        grid-template-areas:
+            "card1 card2 card3 card4"
+            "card5 card6 card7 card8";
+    }
+}

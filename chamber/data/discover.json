@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Uganda Museum",
+    "address": "Kira Road, Kampala",
+    "description": "The oldest museum in East Africa showcasing cultural heritage and history.",
+    "image": "images/uganda-museum.webp"
+  },
+  {
+    "name": "Baháʼí Temple",
+    "address": "Kikaya Hill, Kampala",
+    "description": "A unique architectural landmark and the only Baháʼí House of Worship in Africa.",
+    "image": "images/bahai-temple.webp"
+  },
+  {
+    "name": "Kabaka's Palace",
+    "address": "Mengo Hill, Kampala",
+    "description": "The historical residence of the King of Buganda.",
+    "image": "images/kabaka-palace.webp"
+  },
+  {
+    "name": "Owino Market",
+    "address": "Nakivubo Place Road, Kampala",
+    "description": "A bustling market with thousands of vendors offering clothes, food, and crafts.",
+    "image": "images/owino-market.webp"
+  },
+  {
+    "name": "Independence Monument",
+    "address": "Speke Road, Kampala",
+    "description": "An iconic symbol of Uganda’s independence from colonial rule.",
+    "image": "images/independence-monument.webp"
+  },
+  {
+    "name": "Ndere Cultural Centre",
+    "address": "Ntinda, Kampala",
+    "description": "Celebrates Ugandan dance, music, and storytelling through performances.",
+    "image": "images/ndere-centre.webp"
+  },
+  {
+    "name": "Kampala Railway Station",
+    "address": "Station Road, Kampala",
+    "description": "Historic railway hub reflecting Uganda’s colonial past.",
+    "image": "images/railway-station.webp"
+  },
+  {
+    "name": "Makerere University",
+    "address": "Makerere Hill, Kampala",
+    "description": "One of Africa’s most prestigious universities with a long academic history.",
+    "image": "images/makerere.webp"
+  }
+]
