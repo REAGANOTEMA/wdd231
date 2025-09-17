@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampala Chamber — Discover</title>
+    <meta name="description"
+        content="Discover Kampala — landmarks, culture, and opportunities with the Kampala Regional Chamber of Commerce.">
+    <meta name="author" content="Reagan Otema">
+
+    <!-- Fonts & CSS -->
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/chamber.css">
+    <link rel="stylesheet" href="styles/discover.css">
+    <link rel="stylesheet" href="styles/medium.css">
+
+
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <!-- Header (same as index) -->
+    <header class="container">
+        <div class="topbar">
+            <div class="brand">
+                <a href="index.html">
+                    <svg width="50" height="50" viewBox="0 0 48 48">
+                        <rect rx="10" width="48" height="48" fill="#00477a"></rect>
+                        <text x="24" y="31" font-size="20" font-family="Arial" fill="#fff" text-anchor="middle">k</text>
+                    </svg>
+                </a>
+                <div class="brand-text"><span class="tagline">Supporting local business</span></div>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="discover.html">Discover</a>
+                <a href="#about">About</a>
+            </nav>
+            <button id="hamburger" class="hamburger" aria-label="Open menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="discover-hero">
+            <h1>Discover Kampala</h1>
+            <p>Explore the culture, landmarks, and vibrant life of our capital city.</p>
+        </section>
+
+        <!-- Visitor Info -->
+        <aside id="visit-message" class="visit-message"></aside>
+
+        <!-- Discover Grid -->
+        <section id="discover-grid" class="discover-grid" aria-labelledby="discover-heading">
+            <h2 id="discover-heading" class="sr-only">Places of Interest</h2>
+            <!-- Cards injected via JS -->
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container">
+        <div class="footer-info">
+            <div>© <span id="copyrightYear"></span> Kampala Regional Chamber</div>
+            <div>Last modified: <span id="lastMod"></span></div>
+        </div>
+    </footer>
+
+    <script src="scripts/discover.js" defer></script>
+</body>
+
+</html>
