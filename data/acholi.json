@@ -1,0 +1,92 @@
+[
+    {
+        "name": "Acholi Traditional Dance",
+        "image": "images/dance.webp",
+        "description": "Energetic dances performed during celebrations and ceremonies.",
+        "location": "Gulu Cultural Center"
+    },
+    {
+        "name": "Acholi Clothing & Beads",
+        "image": "images/beads.webp",
+        "description": "Colorful garments and beaded jewelry showcasing Acholi artistry.",
+        "location": "Gulu Market"
+    },
+    {
+        "name": "Amuka Rock Formation",
+        "image": "images/amuka.webp",
+        "description": "Natural rock formation holding cultural significance in Acholi folklore.",
+        "location": "Amuka Village"
+    },
+    {
+        "name": "Acholi Cuisine",
+        "image": "images/cuisine.webp",
+        "description": "Traditional dishes, rich in local flavors and communal preparation.",
+        "location": "Local homes & eateries"
+    },
+    {
+        "name": "Gulu Cultural Museum",
+        "image": "images/museum.webp",
+        "description": "Exhibits highlighting Acholi history, artifacts, and stories of resilience.",
+        "location": "Gulu City"
+    },
+    {
+        "name": "Acholi Storytelling",
+        "image": "images/storytelling.webp",
+        "description": "Oral storytelling that passes knowledge, history, and values through generations.",
+        "location": "Community centers"
+    },
+    {
+        "name": "Acholi Music & Instruments",
+        "image": "images/music.webp",
+        "description": "Traditional music played on drums, adungu, and other indigenous instruments.",
+        "location": "Festivals & ceremonies"
+    },
+    {
+        "name": "Lango Hills Viewpoint",
+        "image": "images/lango.webp",
+        "description": "Scenic hills surrounding Gulu offering breathtaking views.",
+        "location": "Lango Hills"
+    },
+    {
+        "name": "Acholi Pottery",
+        "image": "images/pottery.webp",
+        "description": "Handmade clay pots reflecting Acholi craftsmanship.",
+        "location": "Local artisans workshops"
+    },
+    {
+        "name": "Traditional Marriage Ceremonies",
+        "image": "images/marriage.webp",
+        "description": "Vibrant ceremonies celebrating family and community.",
+        "location": "Throughout Gulu"
+    },
+    {
+        "name": "Acholi Language Classes",
+        "image": "images/language.webp",
+        "description": "Learning the Luo dialect preserves language and identity.",
+        "location": "Cultural centers"
+    },
+    {
+        "name": "Acholi Folklore & Legends",
+        "image": "images/folklore.webp",
+        "description": "Stories passed down through generations about heroes, animals, and the land.",
+        "location": "Oral traditions"
+    },
+    {
+        "name": "Gulu Craft Market",
+        "image": "images/market.webp",
+        "description": "Market where artisans sell traditional crafts, jewelry, and textiles.",
+        "location": "Gulu City"
+    },
+    {
+        "name": "Acholi Festivals",
+        "image": "images/festival.webp",
+        "description": "Annual celebrations of music, dance, and cultural heritage.",
+        "location": "Gulu Cultural Grounds"
+    },
+    {
+        "name": "Acholi Proverbs",
+        "image": "images/proverbs.webp",
+        "description": "Wisdom in short sayings that guide community life and morals.",
+        "location": "Community gatherings"
+    }
+]

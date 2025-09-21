@@ -1,0 +1,264 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap');
+
+/* Global */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #ffffff;
+    color: #8B0000;
+    /* dark red */
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #003366;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 1rem;
+    border-bottom: 2px solid #DAA520;
+    display: inline-block;
+    padding-bottom: 0.2rem;
+}
+
+/* Navigation */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+    color: #DAA520;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Hero Slides */
+.hero {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.slides img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.dots-container {
+    text-align: center;
+    position: relative;
+    top: -30px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 3px;
+    background-color: #C71585;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.active {
+    background-color: #DAA520;
+}
+
+/* Sections */
+main section {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #003366;
+    border-bottom: 2px solid #DAA520;
+    margin-bottom: 1rem;
+}
+
+/* Gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.gallery-item {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    border: 3px solid #003366;
+}
+
+.gallery-item p {
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+}
+
+/* Wireframes */
+.wireframes {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.wireframe img {
+    width: 200px;
+    border: 2px dashed #003366;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background: #003366;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+footer a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #003366;
+        position: absolute;
+        right: 0;
+        top: 60px;
+        width: 200px;
+        padding: 1rem;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .gallery {
+        flex-direction: column;
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    position: relative;
+}
+
+.slides img {
+    width: 100%;
+    height: 100vh;
+    /* Full screen hero */
+    object-fit: cover;
+    display: block;
+}
+
+/* Overlay Text */
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-text h2 {
+    font-size: 3rem;
+    margin: 0;
+    color: #FFD700;
+    /* Gold highlight */
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #FF69B4;
+    /* Pink */
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
