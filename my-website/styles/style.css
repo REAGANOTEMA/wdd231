@@ -1,0 +1,304 @@
+:root {
+    --primary: #003366;
+    --secondary: #f4a261;
+    --light: #f9f9f9;
+    --dark: #333;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global */
+body {
+    font-family: "Roboto", sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Header */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary);
+    padding: 15px 30px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar li {
+    margin-left: 20px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: var(--secondary);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 4px;
+    transition: 0.4s;
+}
+
+/* HERO SECTION FULLSCREEN */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    /* Ensures full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    color: white;
+}
+
+/* Hero overlay for readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Hero Text */
+.hero-text {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-family: "Merriweather", serif;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: fadeInDown 1s ease;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    animation: fadeInUp 1s ease;
+}
+
+/* Hero Images Sliding - Fullscreen */
+.hero-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-images img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Fully cover the hero */
+    opacity: 0;
+    animation: fade 15s infinite;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-images img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.hero-images img:nth-child(2) {
+    animation-delay: 5s;
+}
+
+.hero-images img:nth-child(3) {
+    animation-delay: 10s;
+}
+
+/* Content Sections */
+main {
+    padding: 20px;
+}
+
+section {
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSection 1s forwards;
+}
+
+section:nth-of-type(1) {
+    animation-delay: 0.2s;
+}
+
+section:nth-of-type(2) {
+    animation-delay: 0.4s;
+}
+
+section:nth-of-type(3) {
+    animation-delay: 0.6s;
+}
+
+section:nth-of-type(4) {
+    animation-delay: 0.8s;
+}
+
+section:nth-of-type(5) {
+    animation-delay: 1s;
+}
+
+section:nth-of-type(6) {
+    animation-delay: 1.2s;
+}
+
+/* Color Palette */
+.color-palette {
+    display: flex;
+    margin: 15px 0;
+}
+
+.color-sample {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+}
+
+.primary {
+    background: var(--primary);
+}
+
+.secondary {
+    background: var(--secondary);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background: var(--primary);
+    color: white;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Animations */
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    10%,
+    30% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInSection {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        background: var(--primary);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+}
