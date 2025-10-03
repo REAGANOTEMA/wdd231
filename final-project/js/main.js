@@ -17,7 +17,7 @@ const modalAddBtn = document.getElementById('modal-add-to-cart');
 
 let currentItem = null;
 
-// Responsive hamburger
+// ✅ Responsive hamburger menu
 if (hamburger) {
     hamburger.addEventListener('click', () => {
         const expanded = hamburger.getAttribute('aria-expanded') === 'true';
@@ -26,7 +26,7 @@ if (hamburger) {
     });
 }
 
-// Cart helpers (localStorage)
+// ✅ Cart helpers (localStorage)
 function getCart() {
     return JSON.parse(localStorage.getItem('cart') || '[]');
 }
@@ -37,20 +37,17 @@ function addToCart(item) {
     const cart = getCart();
     cart.push(item);
     saveCart(cart);
-    // simple feedback
     alert(`${item.title} added to cart. Items in cart: ${getCart().length}`);
 }
 
-// Render items (dynamic DOM creation)
+// ✅ Render items dynamically
 function renderItems(items) {
     container.innerHTML = '';
-    // show at least 15 items — items array already contains 15
     items.forEach(item => {
         const card = document.createElement('article');
         card.className = 'item-card';
-        // create markup using template literals (requirement)
         card.innerHTML = `
-      <img src="images/item${((item.id - 1) % 6) + 1}.jpg" alt="${item.title}" loading="lazy">
+      <img src="${item.image}" alt="${item.title}" loading="lazy">
       <h3>${item.title}</h3>
       <p class="meta"><strong>Category:</strong> ${item.category} • <strong>Price:</strong> ${item.price}</p>
       <p>${item.description}</p>
@@ -62,7 +59,7 @@ function renderItems(items) {
         container.appendChild(card);
     });
 
-    // event delegation for buttons
+    // Delegate clicks
     container.addEventListener('click', handleCardClick);
 }
 
@@ -77,39 +74,36 @@ function handleCardClick(e) {
 
     if (addBtn) {
         const id = Number(addBtn.dataset.id);
-        // use fetched items (we store on window for access)
         const item = window.__fetchedItems.find(it => it.id === id);
         if (item) addToCart(item);
     }
 }
 
-// open modal with item details
+// ✅ Open modal
 function openDetails(id) {
     const item = window.__fetchedItems.find(it => it.id === id);
     if (!item) return;
     currentItem = item;
     modalTitle.textContent = item.title;
-    modalImg.src = `images/item${((item.id - 1) % 6) + 1}.jpg`;
+    modalImg.src = item.image;
     modalImg.alt = item.title;
     modalDesc.textContent = item.description;
     modalMeta.textContent = `Category: ${item.category} — Price: ${item.price}`;
     modal.setAttribute('aria-hidden', 'false');
-    // focus management
     modal.querySelector('.modal-close').focus();
 }
 
-// close modal
+// ✅ Close modal
 function closeModal() {
     modal.setAttribute('aria-hidden', 'true');
     currentItem = null;
 }
 
-// modal event listeners
 modalClose.addEventListener('click', closeModal);
-modal.addEventListener('click', (e) => {
+modal.addEventListener('click', e => {
     if (e.target === modal) closeModal();
 });
-window.addEventListener('keydown', (e) => {
+window.addEventListener('keydown', e => {
     if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
         closeModal();
     }
@@ -119,25 +113,32 @@ modalAddBtn.addEventListener('click', () => {
     closeModal();
 });
 
-// initialize app: fetch data, render
+// ✅ Init
 async function init() {
-    const items = await fetchItems(); // uses try...catch inside
-    // save globally so event handlers can find items (simple approach)
+    const items = await fetchItems();
     window.__fetchedItems = items;
 
-    // Demonstrate array method usage: extract categories (map + filter unique)
-    const categories = items.map(i => i.category)
-        .filter((v, i, a) => a.indexOf(v) === i);
-
-    // render items (requirement: at least 15 items with 4 properties each)
     renderItems(items);
 
-    // small demo: persist preferred category to localStorage (localStorage requirement)
+    // Example: categories extracted with map+filter
+    const categories = items.map(i => i.category).filter((v, i, a) => a.indexOf(v) === i);
     const preferred = localStorage.getItem('preferredCategory') || categories[0] || '';
     if (preferred) {
-        // store the value and show basic UI hint (no heavy UI required)
         console.log('Preferred category loaded:', preferred);
     }
 }
 
 init();
+// Responsive hamburger menu with X animation
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', String(!expanded));
+
+        // toggle menu
+        navList.classList.toggle('active');
+
+        // toggle X animation
+        hamburger.classList.toggle('open');
+    });
+}
