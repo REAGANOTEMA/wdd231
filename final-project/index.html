@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description"
+        content="Home page of my final WDD231 project - dynamic, responsive, and interactive website." />
+    <meta name="author" content="Reagan Otema" />
+    <meta property="og:title" content="My Final Project - Home" />
+    <meta property="og:description" content="Dynamic, responsive site demonstrating HTML, CSS and JS skills." />
+    <link rel="icon" href="images/favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>My Final Project - Home</title>
+</head>
+
+<body>
+    <header class="site-header" role="banner">
+        <div class="logo">MyProject</div>
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="attributions.html">Attributions</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <section class="hero" aria-hidden="false">
+        <div class="hero-images">
+            <img src="images/hero1.jpg" alt="landscape 1" loading="lazy" />
+            <img src="images/hero2.jpg" alt="landscape 2" loading="lazy" />
+            <img src="images/hero3.jpg" alt="landscape 3" loading="lazy" />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            <h1>Welcome to My Website</h1>
+            <p>Explore our dynamic content and items list.</p>
+        </div>
+    </section>
+
+    <main id="main" role="main">
+        <section id="items-section" aria-labelledby="items-heading">
+            <h2 id="items-heading">Our Items</h2>
+            <div id="items-container" class="items-grid" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <!-- Accessible modal: hidden by default -->
+    <div id="item-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close dialog">&times;</button>
+            <h3 id="modal-title"></h3>
+            <img id="modal-img" alt="" loading="lazy" />
+            <p id="modal-desc"></p>
+            <p id="modal-meta"></p>
+            <button id="modal-add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Reagan Otema | <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"
+                rel="noopener">Project Demo Video</a></p>
+        <p><a href="attributions.html">Attributions</a></p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

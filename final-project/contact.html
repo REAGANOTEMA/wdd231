@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Contact page with HTML form to submit information." />
+    <meta name="author" content="Reagan Otema" />
+    <link rel="icon" href="images/favicon.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Contact - My Project</title>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="logo">MyProject</div>
+        <nav class="navbar" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+                <li><a href="attributions.html">Attributions</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Contact Us</h1>
+            <form id="contact-form" action="contact-action.html" method="GET" novalidate>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Reagan Otema | <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"
+                rel="noopener">Project Demo Video</a></p>
+        <p><a href="attributions.html">Attributions</a></p>
+    </footer>
+
+    <script>
+        // Simple client-side validation enhancement for accessibility
+        (function () {
+            const form = document.getElementById('contact-form');
+            form.addEventListener('submit', function (e) {
+                if (!form.checkValidity()) {
+                    e.preventDefault();
+                    form.reportValidity();
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

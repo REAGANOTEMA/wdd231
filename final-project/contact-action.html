@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Form action page showing submitted contact data." />
+    <meta name="author" content="Reagan Otema" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Contact Submitted</title>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="logo">MyProject</div>
+        <nav class="navbar" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="attributions.html">Attributions</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Submitted Contact Data</h1>
+            <div id="form-data"></div>
+            <p><a href="contact.html">Return to contact form</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Reagan Otema</p>
+    </footer>
+
+    <script>
+        // Read URLSearchParams and show values (works because contact form uses GET)
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const container = document.getElementById('form-data');
+
+            if (!params.toString()) {
+                container.innerHTML = '<p>No data submitted.</p>';
+                return;
+            }
+
+            const list = document.createElement('dl');
+            for (const [key, value] of params) {
+                const dt = document.createElement('dt');
+                dt.textContent = key;
+                const dd = document.createElement('dd');
+                dd.textContent = value;
+                list.appendChild(dt);
+                list.appendChild(dd);
+            }
+            container.appendChild(list);
+        })();
+    </script>
+</body>
+
+</html>
